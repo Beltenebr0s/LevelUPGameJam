@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [Serializable]
@@ -8,8 +9,9 @@ public class Day
 {
     [SerializeField] private List<Event> events;
 
+
     private int hoursPerDay;
-    private int currentHour;
+    public int currentHour;
 
     public Day ()
     {

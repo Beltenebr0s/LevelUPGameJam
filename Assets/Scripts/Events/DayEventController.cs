@@ -9,20 +9,25 @@ public class DayEventController : MonoBehaviour
     [SerializeField] private List<Day> days = new List<Day>();
     private int dayCounter = 0;
     [SerializeField] private TMP_Text taskList;
-    
+    [SerializeField] private TMP_Text clock;
+
     public Day currentDay;
 
     private float timeCounter = 0f;
     private float timeToHour = 3;
-    
+    private string minutes = ":00";
+
+
     void Start()
     {
         NextDay();
+        UpdateClock();
     }
 
     void Update()
     {
         CheckCompleteTasks();
+        UpdateClock();
         UpdateTimer();
     }
 
@@ -74,5 +79,14 @@ public class DayEventController : MonoBehaviour
             taskListText += "- " + ev.GetTaskName() + "\n";
         }
         taskList.text = taskListText;
+    }
+
+    public void UpdateClock()
+    {
+        if (timeCounter > 1.5)
+        { minutes = ":30"; }
+        else 
+        { minutes = ":00"; }
+        clock.text = (currentDay.currentHour + 8).ToString() + minutes;
     }
 }
