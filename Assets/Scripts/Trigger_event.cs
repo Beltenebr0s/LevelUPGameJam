@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
+    public LoadingCircle loadingCircle;
     private bool triggerActive = false;
     private Renderer objectRenderer;
+    private Coroutine coolActionCoroutine;
 
     private void Start()
     {
@@ -25,6 +27,8 @@ public class Trigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             triggerActive = false;
+            StopCoroutine(coolActionCoroutine);
+            loadingCircle.StopLoading();
         }
     }
 
@@ -32,7 +36,8 @@ public class Trigger : MonoBehaviour
     {
         if (triggerActive && Input.GetKeyDown(KeyCode.Space))
         {
-            SomeCoolAction();
+            coolActionCoroutine = StartCoroutine(WaitAndDoCoolAction());
+            loadingCircle.StartLoading();
         }
     }
 
@@ -46,5 +51,15 @@ public class Trigger : MonoBehaviour
         {
             objectRenderer.material.color = Color.red;
         }
+    }
+
+    private IEnumerator WaitAndDoCoolAction()
+    {
+        yield return new WaitForSeconds(3f); // Wait for 3 seconds
+        
+        SomeCoolAction();
+        
+        loadingCircle.StopLoading();
+
     }
 }
