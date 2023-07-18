@@ -5,16 +5,16 @@ public class CameraController : MonoBehaviour
 {
 
     public GameObject player;
-    private Vector3 relativePos;
+    private float relativePos;
 
     void Start()
     {
-        relativePos = transform.position - player.transform.position;
+        relativePos = transform.position.x - player.transform.position.x;
     }
 
     void LateUpdate()
     {
-        transform.position = player.transform.position + relativePos;
+        transform.position = new Vector3(player.transform.position.x + relativePos, transform.position.y, transform.position.z);
     }
 
 }
