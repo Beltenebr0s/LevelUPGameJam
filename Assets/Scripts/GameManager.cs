@@ -5,8 +5,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverUIPanel;
-    [SerializeField] private TMP_Text endingText;
+    // [SerializeField] private GameObject gameOverUIPanel;
+    // [SerializeField] private TMP_Text endingText;
     
     [TextAreaAttribute(5, 2)]
     [SerializeField] private string phisingBadEnding;
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        gameOverUIPanel.SetActive(false);
+        // gameOverUIPanel.SetActive(false);
         totalGoodEventsFinished = 0;
         requiredGoodEvents = 14;
     }
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-        endingText.SetText(ending);
-        gameOverUIPanel.SetActive(true);
+        // endingText.SetText(ending);
+        // gameOverUIPanel.SetActive(true);
     }
 }

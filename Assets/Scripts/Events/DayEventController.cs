@@ -127,6 +127,7 @@ public class DayEventController : MonoBehaviour
 
     private void ShowDayPopUps()
     {
+        Debug.Log("aaaaaaaaaaaaaaa");
         eventPopup.SetEventList(currentDay.GetDailyEvents());
     }
 }
