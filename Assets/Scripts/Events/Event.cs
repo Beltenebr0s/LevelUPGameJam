@@ -6,10 +6,24 @@ using UnityEngine;
 [Serializable]
 public class Event
 {
+    public enum StoryLine
+    {
+        ARBOLITO,
+        OBRAS,
+        REUNION,
+        PRINCIPE,
+        DEFAULT,
+        BUSTED
+    }
+
     [SerializeField] private string eventTitle;
+
+    [SerializeField] private StoryLine storyLine;
 
     [TextAreaAttribute(10, 3)]
     [SerializeField] private string description;
+
+    [SerializeField] private SpriteRenderer characterSprite;
 
     [SerializeField] private string playerThoughts;
 
@@ -17,16 +31,16 @@ public class Event
     [SerializeField] private bool goodDecision = true;
     [SerializeField] private string taskName;
     
-    private bool eventFinished = false;
+    public bool eventFinished = false;
 
-    // public void SetUp()
-    // {
-    //     // TODO: añadir el script de interacción a los objetos que toquen
-            // foreach (GameObject item in interactableObjects)
-            // {
-            //     item.AddComponent<Interaccion>();
-            // }
-    // }
+    public void SetUp()
+    {
+        foreach (GameObject item in interactableObjects)
+        {
+            item.GetComponent<Trigger>().enabled = true;
+            item.GetComponent<Trigger>().SetAssociatedEvent(this);
+        }
+    }
 
     public bool IsFinished()
     {
@@ -36,6 +50,26 @@ public class Event
     public string GetTaskName()
     {
         return taskName;
+    }
+
+    public override string ToString()
+    {
+        return this.eventTitle;
+    }
+
+    public void CompleteEvent()
+    {
+        eventFinished = true;
+    }
+
+    public bool IsGoodEvent()
+    {
+        return goodDecision;
+    }
+
+    public StoryLine GetStoryLine()
+    {
+        return storyLine;
     }
 
 }

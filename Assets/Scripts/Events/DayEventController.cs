@@ -56,6 +56,7 @@ public class DayEventController : MonoBehaviour
 
     private void NextDay()
     {
+        CheckDayResults();
         if ( days.Count > 0)
         {
             currentDay = days[0];
@@ -89,5 +90,28 @@ public class DayEventController : MonoBehaviour
         { minutes = ":00"; }
         clock.text = (currentDay.currentHour + 8).ToString() + minutes;
     }
+    private void CheckDayResults()
+    {
+        int numEventsFinished = 0;
+        bool badEnding = false;
+        Event.StoryLine badEndingCause = Event.StoryLine.DEFAULT;
+        
+        foreach ( Event ev in currentDay.GetDailyEvents() )
+        {
+            if(ev.IsFinished())
+            {
+                numEventsFinished++;
+                if(!ev.IsGoodEvent())
+                {
+                    badEnding = true;
+                    break;
+                }
+            }
+        }
 
+        if(badEnding)
+        {
+            GameManager.Instance.GameOver(badEndingCause);
+        }
+    }
 }

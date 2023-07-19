@@ -53,4 +53,12 @@ public class Day
         return events;
     }
 
+    public void SetUpEvents()
+    {
+        foreach(Event ev in events)
+        {
+            ev.SetUp();
+        }
+    }
+
 }
