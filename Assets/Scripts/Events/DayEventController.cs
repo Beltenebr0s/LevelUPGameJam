@@ -81,7 +81,7 @@ public class DayEventController : MonoBehaviour
         taskList.text = taskListText;
     }
 
-    public void UpdateClock()
+    private void UpdateClock()
     {
         if (timeCounter > 1.5)
         { minutes = ":30"; }
@@ -89,4 +89,5 @@ public class DayEventController : MonoBehaviour
         { minutes = ":00"; }
         clock.text = (currentDay.currentHour + 8).ToString() + minutes;
     }
+
 }
