@@ -13,6 +13,8 @@ public class DayEventController : MonoBehaviour
 
     public Day currentDay;
 
+    public DailyPopUpManager eventPopup;
+
     private float timeCounter = 0f;
     private float timeToHour = 3;
     private string minutes = ":00";
@@ -63,7 +65,7 @@ public class DayEventController : MonoBehaviour
             days.RemoveAt(0);
             dayCounter++;
             Debug.Log("Día: " + dayCounter);
-            // ShowDayPopUps();
+            ShowDayPopUps();
             WriteDayTasks();
         }
         else
@@ -113,5 +115,10 @@ public class DayEventController : MonoBehaviour
         {
             GameManager.Instance.GameOver(badEndingCause);
         }
+    }
+
+    private void ShowDayPopUps()
+    {
+        eventPopup.SetEventList(currentDay.GetDailyEvents());
     }
 }

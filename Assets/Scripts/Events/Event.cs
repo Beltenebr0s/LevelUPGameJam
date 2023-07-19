@@ -16,16 +16,16 @@ public class Event
         BUSTED
     }
 
-    [SerializeField] private string eventTitle;
+    [SerializeField] public string eventTitle;
 
     [SerializeField] private StoryLine storyLine;
 
     [TextAreaAttribute(10, 3)]
-    [SerializeField] private string description;
+    [SerializeField] public string description;
 
-    [SerializeField] private SpriteRenderer characterSprite;
+    [SerializeField] public SpriteRenderer characterSprite;
 
-    [SerializeField] private string playerThoughts;
+    [SerializeField] public string playerThoughts;
 
     [SerializeField] private List<GameObject> interactableObjects;
     [SerializeField] private bool goodDecision = true;
