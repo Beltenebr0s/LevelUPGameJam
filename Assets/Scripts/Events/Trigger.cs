@@ -8,9 +8,11 @@ public class Trigger : MonoBehaviour
     private bool triggerActive = false;
     private Renderer objectRenderer;
     private Coroutine coolActionCoroutine;
+    public Event associatedEvent;
 
     private void Start()
     {
+        this.enabled = false;
         objectRenderer = GetComponent<Renderer>();
     }
 
@@ -43,14 +45,9 @@ public class Trigger : MonoBehaviour
 
     public void SomeCoolAction()
     {
-        if (objectRenderer.material.color == Color.red)
-        {
-            objectRenderer.material.color = Color.green;
-        }
-        else
-        {
-            objectRenderer.material.color = Color.red;
-        }
+        associatedEvent.CompleteEvent();
+        associatedEvent = null;
+        this.enabled = false;
     }
 
     private IEnumerator WaitAndDoCoolAction()
@@ -61,5 +58,11 @@ public class Trigger : MonoBehaviour
         
         loadingCircle.StopLoading();
 
+    }
+
+    public void SetAssociatedEvent(Event ev)
+    {
+        print("Hola me han puesto este evento: " + ev.ToString());
+        associatedEvent = ev;
     }
 }
