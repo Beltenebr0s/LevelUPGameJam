@@ -8,7 +8,7 @@ public class DailyPopUpManager : MonoBehaviour
     public TMP_Text titleText;
     public TMP_Text descriptionText;
     public Button nextButton;
-    public Image EventSprite;
+    public SpriteRenderer EventSprite;
     public TMP_Text playerThoughts;
 
     public PauseController pauseController;
@@ -18,7 +18,6 @@ public class DailyPopUpManager : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
         nextButton.onClick.AddListener(ShowNextEvent);
     }
 
