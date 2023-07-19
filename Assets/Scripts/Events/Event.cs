@@ -8,12 +8,14 @@ public class Event
 {
     public enum StoryLine
     {
-        ARBOLITO,
+        TREE,
         OBRAS,
-        REUNION,
-        PRINCIPE,
+        CONSTRUCTION,
+        PHISING,
+        WATER,
         DEFAULT,
-        BUSTED
+        BUSTED,
+        NOT_ENOUGH_GOOD_EVENTS
     }
 
     [SerializeField] public string eventTitle;
@@ -37,6 +39,7 @@ public class Event
     {
         foreach (GameObject item in interactableObjects)
         {
+            Debug.Log("????");
             item.GetComponent<Trigger>().enabled = true;
             item.GetComponent<Trigger>().SetAssociatedEvent(this);
         }
