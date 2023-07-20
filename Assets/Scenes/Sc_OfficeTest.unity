@@ -6028,6 +6028,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6064833076228135042, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
+      propertyPath: buttonText
+      value: 
+      objectReference: {fileID: 1732180845}
+    - target: {fileID: 6064833076228135042, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
+      propertyPath: pauseController
+      value: 
+      objectReference: {fileID: 2033483794}
     - target: {fileID: 6581482881754105164, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -12096,6 +12104,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ae9edec2ddbb8a438dce215f08edee5, type: 3}
+--- !u!114 &1732180845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2096482303676550677, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
+  m_PrefabInstance: {fileID: 968209883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1733816275
 GameObject:
   m_ObjectHideFlags: 0
@@ -15792,6 +15811,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e223f5e724872a04593bd291a51ac28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2112671373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6064833076228135042, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
+  m_PrefabInstance: {fileID: 968209883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5627931fa9de6c74b8f90f53ae09e959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2114531539
 GameObject:
   m_ObjectHideFlags: 0
@@ -16587,6 +16617,40 @@ PrefabInstance:
       propertyPath: taskList
       value: 
       objectReference: {fileID: 842396258}
+    - target: {fileID: 5932829095774306412, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: eventPopup
+      value: 
+      objectReference: {fileID: 2112671373}
+    - target: {fileID: 5932829095774306412, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].buttonText
+      value: Plant elderflower tree in the park.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932829095774306412, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].buttonText
+      value: Feed the paper shredder.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932829095774306412, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].description
+      value: "The boss had the magnificent idea of building a heliport in front of
+        our building! We\u2019re getting the permits ready to be sent to the city
+        hall, but it shouldn\u2019t be long until it is completed. Aren\u2019t you
+        excited? No more waiting in traffic excuses to arrive late!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932829095774306412, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].description
+      value: "We have to send the plans of the water bottling facility we are building
+        in the Niagara Falls to the city hall to get them approved and stamped, since
+        construction has been stopped until all the paperwork is in order. I can\u2019t
+        wait to taste that sweet bottled water!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932829095774306412, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e63e484bf66e4f4cb86ded9c77e93d8, type: 3}
+    - target: {fileID: 5932829095774306412, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 88d355bbd51364a408e11dd5e551eb4b, type: 3}
     - target: {fileID: 5942125858291075512, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
       propertyPath: m_Name
       value: Controllers
