@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         float movH = Input.GetAxis("Horizontal");
         float movV = Input.GetAxis("Vertical");
 
-        transform.Translate(new Vector3(movH, 0, movV) * speed * Time.deltaTime);
+        transform.Translate(new Vector3(movH, 0, movV).normalized * speed * Time.deltaTime);
 
         if (movH > 0)
         {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Security.Cryptography.X509Certificates;
 using UnityEditor;
 using UnityEngine;
@@ -36,16 +37,14 @@ public class PauseController : MonoBehaviour
     public void Resume()
     {
         pauseMenuAnim.Play("Escape menu popdown");
-        coroutine = (IEnumerator)ResumeCoroutine(pauseMenuAnim, pauseMenu);
-        StartCoroutine(coroutine);
+        StartCoroutine((IEnumerator)ResumeCoroutine(pauseMenuAnim, pauseMenu));
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
 
     public IEnumerator ResumeCoroutine(Animator anim, GameObject menu)
     {
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitUntil(() => !(anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f));
+        yield return new WaitForSeconds(0.55f);
         menu.SetActive(false);
     }
 
@@ -57,21 +56,17 @@ public class PauseController : MonoBehaviour
         gameIsPaused = true;
     }
 
-    public void MenulessPause()
-    {
-        Time.timeScale = 0f;
-        gameIsPaused = true;
-    }
-
     public void PauseToogle()
     {
         if(gameIsPaused)
         {
-            Resume();
+            Time.timeScale = 1f;
+            gameIsPaused = false;
         }
         else
         {
-            MenulessPause();
+            Time.timeScale = 0f;
+            gameIsPaused = true;
         }
     }
 }
