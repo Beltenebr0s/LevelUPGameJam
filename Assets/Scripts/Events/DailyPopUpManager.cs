@@ -8,8 +8,10 @@ public class DailyPopUpManager : MonoBehaviour
     public TMP_Text titleText;
     public TMP_Text descriptionText;
     public Button nextButton;
-    public SpriteRenderer EventSprite;
+    public SpriteRenderer characterSprite;
+    public SpriteRenderer playerSprite;
     public TMP_Text playerThoughts;
+    public TMP_Text buttonText;
 
     public PauseController pauseController;
 
@@ -37,8 +39,9 @@ public class DailyPopUpManager : MonoBehaviour
             Event currentEvent = eventList[index];
             titleText.text = currentEvent.eventTitle;
             descriptionText.text = currentEvent.description;
-            EventSprite.sprite = currentEvent.characterSprite.sprite;
+            characterSprite.sprite = currentEvent.characterSprite;
             playerThoughts.text = currentEvent.playerThoughts;
+            buttonText.text = currentEvent.buttonText;
         }
         else
         {

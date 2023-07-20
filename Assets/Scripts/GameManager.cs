@@ -5,8 +5,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    // [SerializeField] private GameObject gameOverUIPanel;
-    // [SerializeField] private TMP_Text endingText;
+    [SerializeField] private GameObject gameOverUIPanel;
+    [SerializeField] private TMP_Text endingText;
     
     [TextAreaAttribute(5, 2)]
     [SerializeField] private string phisingBadEnding;
@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
 
     public bool gameRunning;
+    public float startDayTimer = 3f;
+    public float startDayTimerCount = 0f;
     public int totalGoodEventsFinished;
     public int requiredGoodEvents;
 
@@ -41,15 +43,27 @@ public class GameManager : MonoBehaviour
         } 
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         RestartGame();
     }
 
+    void Update()
+    {
+        if(!gameRunning)
+        {
+            startDayTimerCount += Time.deltaTime;
+            if(startDayTimerCount >= startDayTimer)
+            {
+                gameRunning = true;
+                startDayTimerCount = 0f;
+            }
+        }
+    }
+
     public void RestartGame()
     {
-        // gameOverUIPanel.SetActive(false);
+        gameOverUIPanel.SetActive(false);
         totalGoodEventsFinished = 0;
         requiredGoodEvents = 14;
     }
@@ -100,7 +114,12 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
-        // endingText.SetText(ending);
-        // gameOverUIPanel.SetActive(true);
+        endingText.SetText(ending);
+        gameOverUIPanel.SetActive(true);
+    }
+
+    public void FinishDay()
+    {
+        gameRunning = false;
     }
 }

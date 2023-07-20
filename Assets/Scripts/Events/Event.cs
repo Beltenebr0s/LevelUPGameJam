@@ -9,7 +9,7 @@ public class Event
     public enum StoryLine
     {
         TREE,
-        OBRAS,
+        MEETING,
         CONSTRUCTION,
         PHISING,
         WATER,
@@ -25,9 +25,12 @@ public class Event
     [TextAreaAttribute(10, 3)]
     [SerializeField] public string description;
 
-    [SerializeField] public SpriteRenderer characterSprite;
+    [SerializeField] public Sprite characterSprite;
 
+    [TextAreaAttribute(3, 1)]
     [SerializeField] public string playerThoughts;
+    
+    [SerializeField] public string buttonText;
 
     [SerializeField] private List<GameObject> interactableObjects;
     [SerializeField] private bool goodDecision = true;
