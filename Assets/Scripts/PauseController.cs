@@ -19,21 +19,6 @@ public class PauseController : MonoBehaviour
         pauseMenuAnim = pauseMenu.GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
-            {
-                Resume();
-            }
-            else 
-            {
-                Pause();
-            }
-        }
-    }
-
     public void Resume()
     {
         pauseMenuAnim.Play("Escape menu popdown");
