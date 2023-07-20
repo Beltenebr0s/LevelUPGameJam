@@ -19,16 +19,9 @@ public class DayEventController : MonoBehaviour
     private float timeToHour = 3;
     private string minutes = ":00";
 
-
-    void Start()
-    {
-        NextDay();
-        UpdateClock();
-    }
-
     void Update()
     {
-        if (GameManager.Instance.gameRunning || 1 == 1)
+        if (GameManager.Instance.gameRunning)
         {
             CheckCompleteTasks();
             UpdateClock();
@@ -59,7 +52,7 @@ public class DayEventController : MonoBehaviour
         }
     }
 
-    private void NextDay()
+    public void NextDay()
     {
         CheckDayResults();
         if ( days.Count > 0)
@@ -69,7 +62,6 @@ public class DayEventController : MonoBehaviour
             days.RemoveAt(0);
             dayCounter++;
             Debug.Log("Día: " + dayCounter);
-            ShowDayPopUps();
             WriteDayTasks();
         }
         if (days.Count <= 0)
@@ -123,9 +115,10 @@ public class DayEventController : MonoBehaviour
         }
         Debug.Log("Total eventos completados en el día " + dayCounter + ": " + numEventsFinished);
         GameManager.Instance.totalGoodEventsFinished += numEventsFinished;
+        GameManager.Instance.FinishDay();
     }
 
-    private void ShowDayPopUps()
+    public void ShowDayPopUps()
     {
         Debug.Log("aaaaaaaaaaaaaaa");
         eventPopup.SetEventList(currentDay.GetDailyEvents());

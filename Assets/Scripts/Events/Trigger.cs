@@ -14,6 +14,7 @@ public class Trigger : MonoBehaviour
     {
         this.enabled = false;
         objectRenderer = GetComponent<Renderer>();
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -48,6 +49,7 @@ public class Trigger : MonoBehaviour
         associatedEvent.CompleteEvent();
         associatedEvent = null;
         this.enabled = false;
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private IEnumerator WaitAndDoCoolAction()

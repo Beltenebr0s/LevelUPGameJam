@@ -42,9 +42,9 @@ public class Event
     {
         foreach (GameObject item in interactableObjects)
         {
-            Debug.Log("????");
             item.GetComponent<Trigger>().enabled = true;
             item.GetComponent<Trigger>().SetAssociatedEvent(this);
+            item.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 

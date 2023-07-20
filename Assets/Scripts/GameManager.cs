@@ -5,6 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private DayEventController eventController;
     [SerializeField] private GameObject gameOverUIPanel;
     [SerializeField] private TMP_Text endingText;
     
@@ -23,6 +24,11 @@ public class GameManager : MonoBehaviour
     [TextAreaAttribute(5, 2)]
     [SerializeField] private string defaultGoodEnding;
 
+    public GameObject transitionPanel;
+    public bool isFirstDay = true;
+
+    public GameObject player;
+    public Transform startingPosition;
 
     public bool gameRunning;
     public float startDayTimer = 3f;
@@ -52,19 +58,29 @@ public class GameManager : MonoBehaviour
     {
         if(!gameRunning)
         {
-            startDayTimerCount += Time.deltaTime;
             if(startDayTimerCount >= startDayTimer)
             {
+                if(isFirstDay)
+                {
+                    Debug.Log("lfadfj");
+                    isFirstDay = false;
+                    eventController.NextDay();
+                }
                 gameRunning = true;
+                transitionPanel.SetActive(false);
                 startDayTimerCount = 0f;
+                eventController.ShowDayPopUps();
             }
+            startDayTimerCount += Time.deltaTime;
         }
     }
 
     public void RestartGame()
     {
+        transitionPanel.SetActive(true);
         gameOverUIPanel.SetActive(false);
         totalGoodEventsFinished = 0;
+        startDayTimerCount = 0f;
         requiredGoodEvents = 14;
     }
 
@@ -120,6 +136,9 @@ public class GameManager : MonoBehaviour
 
     public void FinishDay()
     {
+        transitionPanel.SetActive(true);
         gameRunning = false;
+        startDayTimerCount = 0f;
+        player.transform.position = startingPosition.position;
     }
 }
