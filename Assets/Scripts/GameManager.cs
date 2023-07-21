@@ -31,10 +31,12 @@ public class GameManager : MonoBehaviour
     public Transform startingPosition;
 
     public bool gameRunning;
-    public float startDayTimer = 3f;
+    public float startDayTimer = 1.5f;
     public float startDayTimerCount = 0f;
     public int totalGoodEventsFinished;
     public int requiredGoodEvents;
+
+    private int currentDay = 0;
 
     public static GameManager Instance { get; private set ;}
     private void Awake() 
@@ -62,14 +64,15 @@ public class GameManager : MonoBehaviour
             {
                 if(isFirstDay)
                 {
-                    Debug.Log("lfadfj");
+                    Debug.Log("lfadfj"); 
                     isFirstDay = false;
-                    eventController.NextDay();
+                    eventController.PlayDay(0);
                 }
                 gameRunning = true;
                 transitionPanel.SetActive(false);
                 startDayTimerCount = 0f;
-                eventController.ShowDayPopUps();
+                Debug.Log("Hola voy a poner los popups");
+                eventController.PlayDay(currentDay);
             }
             startDayTimerCount += Time.deltaTime;
         }
@@ -77,15 +80,19 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1f;
         transitionPanel.SetActive(true);
         gameOverUIPanel.SetActive(false);
         totalGoodEventsFinished = 0;
         startDayTimerCount = 0f;
         requiredGoodEvents = 14;
+        currentDay = 0;
     }
 
     public void EndGame()
     {
+        transitionPanel.SetActive(false);
+        Time.timeScale = 0f;
         Debug.Log("------------------------------------");
         Debug.Log("Eventos completados: " + totalGoodEventsFinished);
         Debug.Log("Eventos necesarios: " + requiredGoodEvents);
@@ -136,9 +143,18 @@ public class GameManager : MonoBehaviour
 
     public void FinishDay()
     {
+        Debug.Log("------------------------------------");
+        currentDay++;
         transitionPanel.SetActive(true);
         gameRunning = false;
         startDayTimerCount = 0f;
+        Debug.Log("Hola??");
+        Debug.Log("Time scale: " + Time.timeScale);
         player.transform.position = startingPosition.position;
+
+        if(currentDay > 2 )
+        {
+            EndGame();
+        }
     }
 }

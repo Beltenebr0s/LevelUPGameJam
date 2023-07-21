@@ -8,7 +8,6 @@ public class DayEventController : MonoBehaviour
 
     [SerializeField] private List<Day> days = new List<Day>();
     private int dayCounter = 0;
-    [SerializeField] private TMP_Text taskList;
     [SerializeField] private TMP_Text clock;
 
     public Day currentDay;
@@ -17,7 +16,7 @@ public class DayEventController : MonoBehaviour
     public ListaDeEventos checklist;
 
     private float timeCounter = 0f;
-    private float timeToHour = 3;
+    private float timeToHour = 10;
     private string minutes = ":00";
 
     void Update()
@@ -34,7 +33,7 @@ public class DayEventController : MonoBehaviour
     {
         if ( currentDay.AreAllTasksComplete() )
         {
-            NextDay();
+            GameManager.Instance.FinishDay();
         }
     }
 
@@ -49,27 +48,16 @@ public class DayEventController : MonoBehaviour
         
         if (currentDay.IsDayOver())
         {
-            NextDay();
+            GameManager.Instance.FinishDay();
         }
     }
 
-    public void NextDay()
+    public void PlayDay(int numDay)
     {
-        CheckDayResults();
-        if ( days.Count > 0)
-        {
-            currentDay = days[0];
-            currentDay.SetUpEvents();
-            days.RemoveAt(0);
-            dayCounter++;
-            Debug.Log("Día: " + dayCounter);
-            ShowDayPopUps();
-        }
-        if (days.Count <= 0)
-        {
-            Debug.Log("Acabao");
-            GameManager.Instance.EndGame();
-        }
+        Debug.Log("Día: " + numDay);
+        currentDay = days[numDay];
+        currentDay.SetUpEvents();
+        ShowDayPopUps();
     }
 
     private void UpdateClock()
@@ -104,7 +92,6 @@ public class DayEventController : MonoBehaviour
         {
             GameManager.Instance.GameOver(badEndingCause);
         }
-        //Debug.Log("Total eventos completados en el día " + dayCounter + ": " + numEventsFinished);
         GameManager.Instance.totalGoodEventsFinished += numEventsFinished;
         GameManager.Instance.FinishDay();
     }

@@ -39,24 +39,24 @@ public class Trigger : MonoBehaviour
     {
         if (triggerActive && Input.GetKeyDown(KeyCode.Space))
         {
-            coolActionCoroutine = StartCoroutine(WaitAndDoCoolAction());
+            coolActionCoroutine = StartCoroutine(WaitAndDoEvent());
             loadingCircle.StartLoading();
         }
     }
 
-    public void SomeCoolAction()
+    public void DoEvent()
     {
         associatedEvent.CompleteEvent();
-        associatedEvent = null;
-        this.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false);
+        this.enabled = false;
+        associatedEvent = null;
     }
 
-    private IEnumerator WaitAndDoCoolAction()
+    private IEnumerator WaitAndDoEvent()
     {
         yield return new WaitForSeconds(3f); // Wait for 3 seconds
         
-        SomeCoolAction();
+        DoEvent();
         
         loadingCircle.StopLoading();
 
@@ -64,7 +64,6 @@ public class Trigger : MonoBehaviour
 
     public void SetAssociatedEvent(Event ev)
     {
-        print("Hola me han puesto este evento: " + ev.ToString());
         associatedEvent = ev;
     }
 }

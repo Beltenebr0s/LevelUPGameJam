@@ -16,16 +16,13 @@ public class ListaDeEventos : MonoBehaviour
     // Llamado cuando un evento cambia su estado eventFinished
     public void EventFinished()
     {
-        Debug.Log("Checking events");
         for (int i = 0; i < events.Count; i++)
         {
-            Debug.Log(i);
             if (events[i]!=null)
             {
                 transform.GetChild(i).GetChild(0).gameObject.SetActive(events[i].eventFinished);
             }
         }
-        Debug.Log("Check list update");
     }
 
     public void SetEventList(List<Event> eventList)

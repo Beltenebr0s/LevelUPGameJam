@@ -18,17 +18,18 @@ public class Event
         NOT_ENOUGH_GOOD_EVENTS
     }
 
-    [SerializeField] public string eventTitle;
-
     [SerializeField] private StoryLine storyLine;
 
     [TextAreaAttribute(10, 3)]
     [SerializeField] public string description;
 
     [SerializeField] public Sprite characterSprite;
-
+    
     [TextAreaAttribute(3, 1)]
     [SerializeField] public string playerThoughts;
+    
+    [SerializeField] public Sprite playerSprite;
+
     
     [SerializeField] public string buttonText;
 
@@ -56,11 +57,6 @@ public class Event
     public string GetTaskName()
     {
         return taskName;
-    }
-
-    public override string ToString()
-    {
-        return this.eventTitle;
     }
 
     public void CompleteEvent()

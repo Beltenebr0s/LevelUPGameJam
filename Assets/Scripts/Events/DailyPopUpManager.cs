@@ -5,13 +5,17 @@ using TMPro;
 
 public class DailyPopUpManager : MonoBehaviour
 {
-    public TMP_Text titleText;
+
+    public GameObject eventDescriptionObject;
+
     public TMP_Text descriptionText;
-    public Button nextButton;
-    public SpriteRenderer characterSprite;
-    public SpriteRenderer playerSprite;
+    public Image characterSprite;
+
+    public Image playerSprite;
     public TMP_Text playerThoughts;
+
     public TMP_Text buttonText;
+    public Button nextButton;
 
     public PauseController pauseController;
 
@@ -26,7 +30,7 @@ public class DailyPopUpManager : MonoBehaviour
     public void SetEventList(List<Event> events)
     {
         gameObject.SetActive(true);
-        pauseController.PauseToogle();
+        Time.timeScale = 0f;
         eventList = events;
         currentEventIndex = 0;
         ShowEvent(currentEventIndex);
@@ -37,16 +41,32 @@ public class DailyPopUpManager : MonoBehaviour
         if (index >= 0 && index < eventList.Count)
         {
             Event currentEvent = eventList[index];
-            titleText.text = currentEvent.eventTitle;
-            descriptionText.text = currentEvent.description;
-            characterSprite.sprite = currentEvent.characterSprite;
-            playerThoughts.text = currentEvent.playerThoughts;
-            buttonText.text = currentEvent.buttonText;
+            if(currentEvent.description.Equals(""))
+            {
+                // Just a player thought
+                descriptionText.text = "";
+                eventDescriptionObject.SetActive(false);
+                characterSprite.gameObject.SetActive(false);
+                playerThoughts.text = currentEvent.playerThoughts;
+                playerSprite.sprite = currentEvent.playerSprite;
+                buttonText.text = currentEvent.buttonText;
+            }
+            else
+            {
+                // Other gives the event
+                descriptionText.text = currentEvent.description;
+                eventDescriptionObject.SetActive(true);
+                characterSprite.gameObject.SetActive(true);
+                characterSprite.sprite = currentEvent.characterSprite;
+                playerThoughts.text = currentEvent.playerThoughts;
+                playerSprite.sprite = currentEvent.playerSprite;
+                buttonText.text = currentEvent.buttonText;
+            }
         }
         else
         {
             gameObject.SetActive(false);
-            pauseController.PauseToogle();
+            Time.timeScale = 1f;
         }
     }
 
