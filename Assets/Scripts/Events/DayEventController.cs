@@ -113,7 +113,7 @@ public class DayEventController : MonoBehaviour
         {
             GameManager.Instance.GameOver(badEndingCause);
         }
-        Debug.Log("Total eventos completados en el día " + dayCounter + ": " + numEventsFinished);
+        //Debug.Log("Total eventos completados en el día " + dayCounter + ": " + numEventsFinished);
         GameManager.Instance.totalGoodEventsFinished += numEventsFinished;
         GameManager.Instance.FinishDay();
     }

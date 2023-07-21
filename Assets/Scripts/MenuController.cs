@@ -16,45 +16,15 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < mainMenu.transform.childCount; i++) 
-        {
-            if (mainMenu.transform.GetChild(i).gameObject.name == "Start Btn")
-            {
-                mainMenu.transform.GetChild(i).gameObject.GetComponent<Button>().onClick.AddListener(StartGame);
-            }
-            else if (mainMenu.transform.GetChild(i).gameObject.name == "Settings Btn")
-            {
-                mainMenu.transform.GetChild(i).gameObject.GetComponent<Button>().onClick.AddListener(OpenSettings);
-            }
-            else if (mainMenu.transform.GetChild(i).gameObject.name == "Quit Btn")
-            {
-                mainMenu.transform.GetChild(i).gameObject.GetComponent<Button>().onClick.AddListener(QuitGame);
-            }
-        }
+        mainMenu.transform.Find("Start Btn").gameObject.GetComponent<Button>().onClick.AddListener(StartGame);
+        mainMenu.transform.Find("Settings Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenSettings);
+        mainMenu.transform.Find("Quit Btn").gameObject.GetComponent<Button>().onClick.AddListener(QuitGame);
 
-        for (int i = 0; i < pauseMenu.transform.childCount; i++)
-        {
-            if (pauseMenu.transform.GetChild(i).gameObject.name == "Resume Btn")
-            {
-                pauseMenu.transform.GetChild(i).gameObject.GetComponent<Button>().onClick.AddListener(pauseController.Resume);
-            }
-            else if (pauseMenu.transform.GetChild(i).gameObject.name == "Settings Btn")
-            {
-                pauseMenu.transform.GetChild(i).gameObject.GetComponent<Button>().onClick.AddListener(OpenSettings);
-            }
-            else if (pauseMenu.transform.GetChild(i).gameObject.name == "Exit Btn")
-            {
-                pauseMenu.transform.GetChild(i).gameObject.GetComponent<Button>().onClick.AddListener(OpenMainMenu);
-            }
-        }
+        pauseMenu.transform.Find("Resume Btn").gameObject.GetComponent<Button>().onClick.AddListener(pauseController.Resume);
+        pauseMenu.transform.Find("Settings Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenSettings);
+        pauseMenu.transform.Find("Exit Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenMainMenu);
 
-        for (int i = 0; i < settingsMenu.transform.childCount; i++)
-        {
-            if (settingsMenu.transform.GetChild(i).gameObject.name == "Back Btn")
-            {
-                settingsMenu.transform.GetChild(i).gameObject.GetComponent<Button>().onClick.AddListener(CloseSettings);
-            }
-        }
+        settingsMenu.transform.Find("Back Btn").gameObject.GetComponent<Button>().onClick.AddListener(CloseSettings);
     }
 
     void LateUpdate()
