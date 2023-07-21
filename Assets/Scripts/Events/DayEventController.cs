@@ -64,7 +64,6 @@ public class DayEventController : MonoBehaviour
             dayCounter++;
             Debug.Log("Día: " + dayCounter);
             ShowDayPopUps();
-            // WriteDayTasks();
         }
         if (days.Count <= 0)
         {
