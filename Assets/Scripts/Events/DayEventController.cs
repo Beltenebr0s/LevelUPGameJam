@@ -14,6 +14,7 @@ public class DayEventController : MonoBehaviour
     public Day currentDay;
 
     public DailyPopUpManager eventPopup;
+    public ListaDeEventos checklist;
 
     private float timeCounter = 0f;
     private float timeToHour = 3;
@@ -62,23 +63,13 @@ public class DayEventController : MonoBehaviour
             days.RemoveAt(0);
             dayCounter++;
             Debug.Log("Día: " + dayCounter);
-            WriteDayTasks();
+            ShowDayPopUps();
         }
         if (days.Count <= 0)
         {
             Debug.Log("Acabao");
             GameManager.Instance.EndGame();
         }
-    }
-
-    private void WriteDayTasks()
-    {
-        string taskListText = "";
-        foreach(Event ev in currentDay.GetDailyEvents())
-        {
-            taskListText += "- " + ev.GetTaskName() + "\n";
-        }
-        taskList.text = taskListText;
     }
 
     private void UpdateClock()
@@ -120,7 +111,7 @@ public class DayEventController : MonoBehaviour
 
     public void ShowDayPopUps()
     {
-        Debug.Log("aaaaaaaaaaaaaaa");
+        checklist.SetEventList(currentDay.GetDailyEvents());
         eventPopup.SetEventList(currentDay.GetDailyEvents());
     }
 }
