@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour
 {
-    void Update()
+    void LateUpdate()
     {
-        transform.LookAt(new Vector3(Camera.main.transform.position.x, transform.position.y, Camera.main.transform.position.z), Vector3.up);
-        transform.forward *= -1;
+        transform.forward = Camera.main.transform.forward;
+        
+        //transform.LookAt(new Vector3(Camera.main.transform.position.x, transform.position.y, Camera.main.transform.position.z), Vector3.up);
+        //transform.forward *= -1;
     }
 }

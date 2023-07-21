@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1450422062800140662}
-  - component: {fileID: 3851391830414359412}
   - component: {fileID: 9159679066871900793}
   m_Layer: 0
   m_Name: PauseController
@@ -33,20 +32,6 @@ Transform:
   m_Father: {fileID: 1970796037903568411}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3851391830414359412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 70571391963705476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3b37742920ad67429693f29ecafd4cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameIsPaused: 0
-  pauseMenu: {fileID: 0}
 --- !u!114 &9159679066871900793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,12 +90,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a04e0bd2c6c44eba04af7d4eb9a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventController: {fileID: 0}
+  gameOverUIPanel: {fileID: 0}
+  endingText: {fileID: 0}
   phisingBadEnding: 
   bustedBadEnding: 
   waterBadEnding: 
   notEnoughBadEnding: 
   defaultGoodEnding: 
+  transitionPanel: {fileID: 0}
+  isFirstDay: 1
+  player: {fileID: 0}
+  startingPosition: {fileID: 0}
   gameRunning: 0
+  startDayTimer: 3
+  startDayTimerCount: 0
   totalGoodEventsFinished: 0
   requiredGoodEvents: 0
 --- !u!1 &5942125858291075512
@@ -145,8 +139,9 @@ Transform:
   - {fileID: 1450422062800140662}
   - {fileID: 4114721998484721335}
   - {fileID: 4294575982051926062}
+  - {fileID: 981940943510678938}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7798806447518399711
 GameObject:
@@ -158,7 +153,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4114721998484721335}
   - component: {fileID: 6461844264052141898}
-  - component: {fileID: 7975917583211568489}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -196,21 +190,60 @@ MonoBehaviour:
   mainMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   pauseMenu: {fileID: 0}
---- !u!114 &7975917583211568489
+  pauseController: {fileID: 9159679066871900793}
+  mainMenuIsOpen: 0
+  pauseMenuIsOpen: 0
+--- !u!1 &8742996789423077217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981940943510678938}
+  - component: {fileID: 4301318649639172333}
+  m_Layer: 0
+  m_Name: ChatBubbleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &981940943510678938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742996789423077217}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 31.992893, y: 8.921604, z: -7.04748}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1970796037903568411}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4301318649639172333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7798806447518399711}
+  m_GameObject: {fileID: 8742996789423077217}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e223f5e724872a04593bd291a51ac28c, type: 3}
+  m_Script: {fileID: 11500000, guid: dee078b51e55d1e4ea471a959bb1590e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  settingsMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  playerTransform: {fileID: 0}
+  NPCList:
+  - name: Bob
+    bubbleRelativePos: {x: 0, y: 4}
+    dialogos:
+    - Hola caracola.
+  chatBubble: {fileID: 3602464338567745537, guid: 0b1138e2eb5f14f40b2a12352760576f, type: 3}
 --- !u!1001 &2948628149133978621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,6 +256,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].buttonText
+      value: Plant elderflower tree in the park.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].buttonText
+      value: Feed the paper shredder.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].description
+      value: "The boss had the magnificent idea of building a heliport in front of
+        our building! We\u2019re getting the permits ready to be sent to the city
+        hall, but it shouldn\u2019t be long until it is completed. Aren\u2019t you
+        excited? No more waiting in traffic excuses to arrive late!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].description
+      value: "We have to send the plans of the water bottling facility we are building
+        in the Niagara Falls to the city hall to get them approved and stamped, since
+        construction has been stopped until all the paperwork is in order. I can\u2019t
+        wait to taste that sweet bottled water!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e63e484bf66e4f4cb86ded9c77e93d8, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 88d355bbd51364a408e11dd5e551eb4b, type: 3}
     - target: {fileID: 8963514830128896453, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: m_RootOrder
       value: -1
