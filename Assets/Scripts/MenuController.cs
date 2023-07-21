@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using JetBrains.Annotations;
 
 public class MenuController : MonoBehaviour
 {
@@ -82,4 +84,32 @@ public class MenuController : MonoBehaviour
     {
         mainMenu.SetActive(false);
     }
+    
+    public AudioMixer audiomixer;
+    public AudioMixer musicmixer;
+    public AudioMixer effectmixer;
+    public void SetMainVolume(float volume)
+    {
+
+        audiomixer.SetFloat("mastervolume", volume);
+    }public void SetMusicVolume(float volume)
+    {
+
+        musicmixer.SetFloat("musicvolume", volume);
+    }public void SetEffectVolume(float volume)
+    {
+
+        effectmixer.SetFloat("effectvolume", volume);
+    }
+
+    public GameObject BeaAnimated;
+    public void QuitaDeAhi()
+    {
+        BeaAnimated.transform.position = new Vector3(2622, -1519, 0);
+    }
+    public void Vuelveahi()
+    {
+        BeaAnimated.transform.position = new Vector3(534, -1519, 0);
+    }
+
 }
