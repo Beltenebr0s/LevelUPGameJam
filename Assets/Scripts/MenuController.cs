@@ -127,11 +127,14 @@ public class MenuController : MonoBehaviour
 
 
     public AudioMixer audiomixer;
+    public bool isaudioOn;
+    public float mainvolume;
 
     public void SetMainVolume(float volume)
     {
 
         audiomixer.SetFloat("mastervolume", volume);
+        mainvolume = volume;
     }
     public void SetMusicVolume(float volume)
     {
@@ -143,6 +146,20 @@ public class MenuController : MonoBehaviour
 
         audiomixer.SetFloat("effectvolume", volume);
     }
+    public void ToggleAudio()
+    {
+        if (isaudioOn) 
+        {
+            audiomixer.SetFloat("mastervolume", -40f);
+            isaudioOn = false;
+        }
+        else
+        {
+            audiomixer.SetFloat("mastervolume", mainvolume);
+            isaudioOn = true;
+        }
+    }
+
 
     public GameObject BeaAnimated;
     public void QuitaDeAhi()

@@ -276,7 +276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &128005794
 AudioSource:
   m_ObjectHideFlags: 0
@@ -287,7 +287,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3636444437125169851, guid: 9ef586505d95b324491697afdb570d7f, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3190a642fdfcbb146b123a1ea2df6469, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c19de6ea56090c74183315b08d4fe73e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1276,10 +1276,10 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 128005793}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 0
+      - m_Target: {fileID: 1438034594}
+        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+        m_MethodName: ToggleAudio
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1299,7 +1299,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
   m_IsOn: 0
 --- !u!114 &556888379
 MonoBehaviour:
@@ -1567,7 +1567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &710777467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2302,13 +2302,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e223f5e724872a04593bd291a51ac28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 1438034592}
   settingsMenu: {fileID: 1280466383}
   pauseMenu: {fileID: 0}
   HUD: {fileID: 0}
   dailyMenu: {fileID: 0}
   pauseController: {fileID: 0}
   audiomixer: {fileID: 24100000, guid: 9ef586505d95b324491697afdb570d7f, type: 2}
+  isaudioOn: 0
+  mainvolume: 0
   BeaAnimated: {fileID: 1531941335}
 --- !u!114 &1438034597
 MonoBehaviour:
