@@ -2154,12 +2154,10 @@ MonoBehaviour:
   mainMenu: {fileID: 1438034592}
   settingsMenu: {fileID: 1280466383}
   pauseMenu: {fileID: 0}
+  HUD: {fileID: 0}
+  dailyMenu: {fileID: 0}
   pauseController: {fileID: 0}
-  mainMenuIsOpen: 0
-  pauseMenuIsOpen: 0
   audiomixer: {fileID: 24100000, guid: 9ef586505d95b324491697afdb570d7f, type: 2}
-  musicmixer: {fileID: 24100000, guid: 94e96bfa8fad4ca4d9007f40e883b5db, type: 2}
-  effectmixer: {fileID: 24100000, guid: c6c2087a6cf777548a2206e055b265a2, type: 2}
   BeaAnimated: {fileID: 1531941335}
 --- !u!114 &1438034597
 MonoBehaviour:
