@@ -133,20 +133,21 @@ public class MenuController : MonoBehaviour
 
 
     public AudioMixer audiomixer;
-    public AudioMixer musicmixer;
-    public AudioMixer effectmixer;
+
     public void SetMainVolume(float volume)
     {
 
         audiomixer.SetFloat("mastervolume", volume);
-    }public void SetMusicVolume(float volume)
+    }
+    public void SetMusicVolume(float volume)
     {
 
-        musicmixer.SetFloat("musicvolume", volume);
-    }public void SetEffectVolume(float volume)
+        audiomixer.SetFloat("musicvolume", volume);
+    }
+    public void SetEffectVolume(float volume)
     {
 
-        effectmixer.SetFloat("effectvolume", volume);
+        audiomixer.SetFloat("effectvolume", volume);
     }
 
     public GameObject BeaAnimated;
