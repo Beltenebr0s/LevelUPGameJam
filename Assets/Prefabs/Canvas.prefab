@@ -307,7 +307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8861258885884099271
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1048,11 +1048,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a sodales
-    ipsum. Fusce tempus magna sit amet tellus efficitur pellentesque. Nulla non massa
-    lacus. Pellentesque congue velit vitae quam posuere, eleifend hendrerit lorem
-    hendrerit. Nunc at molestie elit, in semper quam. Suspendisse potenti. Vestibulum
-    ut sodales ipsum, ut interdum nisl. '
+  m_text: "En resolucio\u0301n, e\u0301l se enfrasco\u0301 tanto en su lectura, que
+    se le pasaban las noches leyendo de claro en claro, y los di\u0301as de turbio
+    en turbio, y asi\u0301, del poco dormir y del mucho leer, se le seco\u0301 el
+    cerebro, de manera que vino a perder el juicio. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1079,7 +1078,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.7
+  m_fontSize: 27.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1115,7 +1114,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 26.47335, z: 0.430542, w: 13.91637}
+  m_margin: {x: -4.680023, y: 26.47335, z: 20.776611, w: 33.191166}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2687,11 +2686,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a sodales
-    ipsum. Fusce tempus magna sit amet tellus efficitur pellentesque. Nulla non massa
-    lacus. Pellentesque congue velit vitae quam posuere, eleifend hendrerit lorem
-    hendrerit. Nunc at molestie elit, in semper quam. Suspendisse potenti. Vestibulum
-    ut sodales ipsum, ut interdum nisl. '
+  m_text: "Tuvo muchas veces competencia con el cura de su lugar (que era hombre
+    docto graduado en Sigu\u0308enza), sobre cua\u0301l habi\u0301a sido mejor caballero,
+    Palmeri\u0301n de Inglaterra o Amadi\u0301s de Gaula; mas maese Nicola\u0301s,
+    barbero del mismo pueblo, deci\u0301a que ninguno llegaba al caballero del Febo,
+    y que si alguno se le podi\u0301a comparar, era don Galaor, hermano de Amadi\u0301s
+    de Gaula, porque teni\u0301a muy acomodada condicio\u0301n para todo; que no
+    era caballero melindroso, ni tan lloro\u0301n como su hermano, y que en lo de
+    la valenti\u0301a no le iba en zaga.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2718,7 +2720,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.15
+  m_fontSize: 23
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2754,7 +2756,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -19.006714, z: -3.7438354, w: -23.656616}
+  m_margin: {x: 69.01962, y: 0.94110876, z: 35.431885, w: 6.5262375}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4350,7 +4352,7 @@ RectTransform:
   - {fileID: 1754489642572058229}
   - {fileID: 1162586506146254148}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

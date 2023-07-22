@@ -86,6 +86,8 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
+        isFirstDay = true;
+        gameRunning = false;
         transitionPanel.SetActive(true);
         gameOverUIPanel.SetActive(false);
         totalGoodEventsFinished = 0;
@@ -148,6 +150,7 @@ public class GameManager : MonoBehaviour
 
     public void FinishDay()
     {
+        CheckDayResults();
         currentDay++;
         transitionPanel.SetActive(true);
         gameRunning = false;
@@ -158,6 +161,32 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+    }
+
+    private void CheckDayResults()
+    {
+        int numEventsFinished = 0;
+        bool badEnding = false;
+        Event.StoryLine badEndingCause = Event.StoryLine.DEFAULT;
+        
+        foreach ( Event ev in eventController.currentDay.GetDailyEvents() )
+        {
+            if(ev.IsFinished())
+            {
+                numEventsFinished++;
+                if(!ev.IsGoodEvent())
+                {
+                    badEnding = true;
+                    badEndingCause = ev.GetStoryLine();
+                    break;
+                }
+            }
+        }
+        if(badEnding)
+        {
+            GameManager.Instance.GameOver(badEndingCause);
+        }
+        totalGoodEventsFinished += numEventsFinished;
     }
 
     public void ReloadGame()

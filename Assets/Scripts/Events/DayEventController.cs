@@ -15,7 +15,7 @@ public class DayEventController : MonoBehaviour
     public ListaDeEventos checklist;
 
     private float timeCounter = 0f;
-    private float timeToHour = 40;
+    private float timeToHour = 3;
     private string minutes = ":00";
 
     void Update()
@@ -67,32 +67,6 @@ public class DayEventController : MonoBehaviour
         clock.text = (currentDay.currentHour + 8).ToString() + minutes;
     }
 
-    private void CheckDayResults()
-    {
-        int numEventsFinished = 0;
-        bool badEnding = false;
-        Event.StoryLine badEndingCause = Event.StoryLine.DEFAULT;
-        
-        foreach ( Event ev in currentDay.GetDailyEvents() )
-        {
-            if(ev.IsFinished())
-            {
-                numEventsFinished++;
-                if(!ev.IsGoodEvent())
-                {
-                    badEnding = true;
-                    badEndingCause = ev.GetStoryLine();
-                    break;
-                }
-            }
-        }
-        if(badEnding)
-        {
-            GameManager.Instance.GameOver(badEndingCause);
-        }
-        GameManager.Instance.totalGoodEventsFinished += numEventsFinished;
-        GameManager.Instance.FinishDay();
-    }
 
     public void ShowDayPopUps()
     {
@@ -108,6 +82,7 @@ public class DayEventController : MonoBehaviour
             foreach (Event ev in d.GetDailyEvents())
             {
                 ev.eventFinished = false;
+                ev.TearDown();
             }
         }
     }
