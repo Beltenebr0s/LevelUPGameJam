@@ -49,6 +49,16 @@ public class Event
         }
     }
 
+    public void TearDown()
+    {
+        foreach (GameObject item in interactableObjects)
+        {
+            item.GetComponent<Trigger>().enabled = false;
+            item.GetComponent<Trigger>().SetAssociatedEvent(null);
+            item.transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
+
     public bool IsFinished()
     {
         return eventFinished;

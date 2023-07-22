@@ -7,7 +7,6 @@ public class DayEventController : MonoBehaviour
 {
 
     [SerializeField] private List<Day> days = new List<Day>();
-    private int dayCounter = 0;
     [SerializeField] private TMP_Text clock;
 
     public Day currentDay;
@@ -16,7 +15,7 @@ public class DayEventController : MonoBehaviour
     public ListaDeEventos checklist;
 
     private float timeCounter = 0f;
-    private float timeToHour = 10;
+    private float timeToHour = 40;
     private string minutes = ":00";
 
     void Update()
@@ -54,7 +53,6 @@ public class DayEventController : MonoBehaviour
 
     public void PlayDay(int numDay)
     {
-        Debug.Log("Día: " + numDay);
         currentDay = days[numDay];
         currentDay.SetUpEvents();
         ShowDayPopUps();
@@ -100,5 +98,17 @@ public class DayEventController : MonoBehaviour
     {
         checklist.SetEventList(currentDay.GetDailyEvents());
         eventPopup.SetEventList(currentDay.GetDailyEvents());
+    }
+
+    public void RestartDays()
+    {
+        foreach(Day d in days)
+        {
+            d.currentHour = 0;
+            foreach (Event ev in d.GetDailyEvents())
+            {
+                ev.eventFinished = false;
+            }
+        }
     }
 }
