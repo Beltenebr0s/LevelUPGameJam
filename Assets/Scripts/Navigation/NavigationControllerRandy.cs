@@ -63,7 +63,6 @@ public class NavigationControllerRandy : MonoBehaviour
             {
                 // Impossible case
             }
-            Debug.Log("Estoy caminando por " + currentArea);
             nav.SetDestination(target.position);
         }
 
