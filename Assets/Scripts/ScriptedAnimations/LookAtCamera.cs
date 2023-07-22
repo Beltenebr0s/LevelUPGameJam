@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class LookAtCamera : MonoBehaviour
 {
@@ -25,6 +26,19 @@ public class LookAtCamera : MonoBehaviour
                 gameObject.GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("Front");
             }
         }
+
+        if (gameObject.GetComponent<SortingGroup>() != null)
+        {
+            if (mainCamera.transform.position.z - distToCameraZ < transform.position.z)
+            {
+                gameObject.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("Back");
+            }
+            else
+            {
+                gameObject.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("Front");
+            }
+        }
+
         transform.forward = Camera.main.transform.forward;
         
         //transform.LookAt(new Vector3(Camera.main.transform.position.x, transform.position.y, Camera.main.transform.position.z), Vector3.up);

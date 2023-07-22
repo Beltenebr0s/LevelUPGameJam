@@ -6,7 +6,6 @@ public class PauseMenuAnimation : MonoBehaviour
 {
 
     [SerializeField] private Animator animator;
-    private IEnumerator coroutine;
 
     private void Start()
     {
@@ -22,7 +21,7 @@ public class PauseMenuAnimation : MonoBehaviour
     public void Hide()
     {
         animator.SetBool("open", false);
-        StartCoroutine((IEnumerator)WaitForAnim(animator, gameObject));
+        StartCoroutine(WaitForAnim(animator, gameObject));
     }
 
     private IEnumerator WaitForAnim(Animator anim, GameObject menu)
