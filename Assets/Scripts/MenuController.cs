@@ -156,7 +156,7 @@ public class MenuController : MonoBehaviour
     }
     public void Vuelveahi()
     {
-        BeaAnimated.transform.position = new Vector3(534, -1519, 0);
+        BeaAnimated.transform.position = new Vector3(5, -14, 90);
     }
 
 }
