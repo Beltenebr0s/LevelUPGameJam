@@ -61,4 +61,13 @@ public class Day
         }
     }
 
+    public void TearDownEvents()
+    {
+        Debug.Log("Quitando eventos...");
+        foreach(Event ev in events)
+        {
+            ev.TearDown();
+        }
+    }
+
 }

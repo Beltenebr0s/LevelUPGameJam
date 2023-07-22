@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +40,11 @@ public class GameManager : MonoBehaviour
 
     private int currentDay = 0;
 
+    public Image endImage;
+    public Sprite goodEndingSprite;
+    public Sprite badEndingSprite;
+
+
     public static GameManager Instance { get; private set ;}
     private void Awake() 
     { 
@@ -64,14 +71,12 @@ public class GameManager : MonoBehaviour
             {
                 if(isFirstDay)
                 {
-                    Debug.Log("lfadfj"); 
                     isFirstDay = false;
                     eventController.PlayDay(0);
                 }
                 gameRunning = true;
                 transitionPanel.SetActive(false);
                 startDayTimerCount = 0f;
-                Debug.Log("Hola voy a poner los popups");
                 eventController.PlayDay(currentDay);
             }
             startDayTimerCount += Time.deltaTime;
@@ -87,22 +92,21 @@ public class GameManager : MonoBehaviour
         startDayTimerCount = 0f;
         requiredGoodEvents = 14;
         currentDay = 0;
+        eventController.RestartDays();
     }
 
     public void EndGame()
     {
         transitionPanel.SetActive(false);
         Time.timeScale = 0f;
-        Debug.Log("------------------------------------");
-        Debug.Log("Eventos completados: " + totalGoodEventsFinished);
-        Debug.Log("Eventos necesarios: " + requiredGoodEvents);
         if(totalGoodEventsFinished < requiredGoodEvents)
         {
             GameOver(Event.StoryLine.NOT_ENOUGH_GOOD_EVENTS);
         }
         else
         {
-            Debug.Log("Buen ending");
+            endImage.sprite = goodEndingSprite;
+            endingText.SetText(defaultGoodEnding);
         }
     }
 
@@ -137,24 +141,28 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
+        endImage.sprite = badEndingSprite;
         endingText.SetText(ending);
         gameOverUIPanel.SetActive(true);
     }
 
     public void FinishDay()
     {
-        Debug.Log("------------------------------------");
         currentDay++;
         transitionPanel.SetActive(true);
         gameRunning = false;
         startDayTimerCount = 0f;
-        Debug.Log("Hola??");
-        Debug.Log("Time scale: " + Time.timeScale);
         player.transform.position = startingPosition.position;
-
+        eventController.currentDay.TearDownEvents();
         if(currentDay > 2 )
         {
             EndGame();
         }
+    }
+
+    public void ReloadGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
