@@ -158,11 +158,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8823261593350395043, guid: 2b50c1a35ac04a54ba83e14c7e01e13e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8823261593350395043, guid: 2b50c1a35ac04a54ba83e14c7e01e13e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.82
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 8823261593350395043, guid: 2b50c1a35ac04a54ba83e14c7e01e13e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -170,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8823261593350395043, guid: 2b50c1a35ac04a54ba83e14c7e01e13e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8823261593350395043, guid: 2b50c1a35ac04a54ba83e14c7e01e13e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -294,7 +294,7 @@ MonoBehaviour:
   runningIncr: 2
   blinkRange: 0.005
   animator: {fileID: 5032008192344783512}
-  rb: {fileID: 0}
+  rb: {fileID: 2962642622744112672}
 --- !u!114 &6802678289407627373
 MonoBehaviour:
   m_ObjectHideFlags: 0

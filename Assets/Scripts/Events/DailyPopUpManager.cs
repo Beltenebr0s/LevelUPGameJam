@@ -14,7 +14,6 @@ public class DailyPopUpManager : MonoBehaviour
     public Image playerSprite;
     public TMP_Text playerThoughts;
 
-    public TMP_Text buttonText;
     public Button nextButton;
 
     public PauseController pauseController;
@@ -55,7 +54,6 @@ public class DailyPopUpManager : MonoBehaviour
                 characterSprite.gameObject.SetActive(false);
                 playerThoughts.text = currentEvent.playerThoughts;
                 playerSprite.sprite = currentEvent.playerSprite;
-                buttonText.text = currentEvent.buttonText;
 
                 thoughtBubble.sprite = thoughtBubbles[UnityEngine.Random.Range(0, thoughtBubbles.Count)];
             }
@@ -68,7 +66,6 @@ public class DailyPopUpManager : MonoBehaviour
                 characterSprite.sprite = currentEvent.characterSprite;
                 playerThoughts.text = currentEvent.playerThoughts;
                 playerSprite.sprite = currentEvent.playerSprite;
-                buttonText.text = currentEvent.buttonText;
 
                 //characterSprite.SetNativeSize();
 

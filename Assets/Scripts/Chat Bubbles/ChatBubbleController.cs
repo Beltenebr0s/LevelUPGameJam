@@ -21,7 +21,11 @@ public class ChatBubbleController : MonoBehaviour
     public void Create(Transform parent, Vector3 relPos, string newDialog)
     {
         GameObject chatBubbleTransf = Instantiate(chatBubble, parent);
-        chatBubbleTransf.transform.localPosition = relPos;
+
+        rescaling.x = relPos.x / parent.transform.localScale.x;
+        rescaling.y = relPos.y / parent.transform.localScale.y;
+        rescaling.z = relPos.z / parent.transform.localScale.z;
+        chatBubbleTransf.transform.localPosition = rescaling;
 
         rescaling.x = chatBubbleTransf.transform.localScale.x / parent.transform.localScale.x;
         rescaling.y = chatBubbleTransf.transform.localScale.y / parent.transform.localScale.y;

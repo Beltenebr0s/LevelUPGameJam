@@ -109,6 +109,58 @@ MonoBehaviour:
   startDayTimerCount: 0
   totalGoodEventsFinished: 0
   requiredGoodEvents: 0
+  endImage: {fileID: 0}
+  goodEndingSprite: {fileID: 21300000, guid: aef3bd01ecb59de4c9edfb7f389fe7db, type: 3}
+  badEndingSprite: {fileID: 21300000, guid: e1f5d75a3dc7ed845ab37ef62add90d1, type: 3}
+--- !u!1 &5472855465937963231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1748544242731996486}
+  - component: {fileID: 3338113542234711793}
+  m_Layer: 0
+  m_Name: TeleportController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1748544242731996486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472855465937963231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1970796037903568411}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3338113542234711793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472855465937963231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0db177ca82f9d44298f651c206721ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportPopup: {fileID: 3689277323867938831, guid: db138db86921dd54289be64993290404, type: 3}
+  backgroundCanvas: {fileID: 0}
+  player: {fileID: 0}
+  relPos: {x: 0, y: 1, z: 0}
+  closestTeleport: {fileID: 0}
 --- !u!1 &5942125858291075512
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,8 +194,9 @@ Transform:
   - {fileID: 4114721998484721335}
   - {fileID: 4294575982051926062}
   - {fileID: 981940943510678938}
+  - {fileID: 1748544242731996486}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7798806447518399711
 GameObject:
@@ -189,14 +242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e223f5e724872a04593bd291a51ac28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   pauseMenu: {fileID: 0}
-  tasksMenu: {fileID: 0}
+  HUD: {fileID: 0}
+  dailyMenu: {fileID: 0}
   pauseController: {fileID: 5510667118539040209}
-  audiomixer: {fileID: 0}
-  musicmixer: {fileID: 0}
-  effectmixer: {fileID: 0}
+  audiomixer: {fileID: 24100000, guid: 9ef586505d95b324491697afdb570d7f, type: 2}
   BeaAnimated: {fileID: 0}
 --- !u!1 &8742996789423077217
 GameObject:
@@ -252,6 +303,15 @@ MonoBehaviour:
     bubbleRelativePos: {x: 0, y: 4}
     dialogos:
     - Quieres un piti?
+  - name: NPC Computer
+    bubbleRelativePos: {x: 0, y: 4}
+    dialogos:
+    - Screeeeeeennnnnn......
+  - name: NPC Coffee
+    bubbleRelativePos: {x: 0, y: 4}
+    dialogos:
+    - Finland has the highest coffee consumption per capita, with almost 14 kg a
+      year.
   chatBubble: {fileID: 3602464338567745537, guid: 0b1138e2eb5f14f40b2a12352760576f, type: 3}
 --- !u!1001 &2948628149133978621
 PrefabInstance:

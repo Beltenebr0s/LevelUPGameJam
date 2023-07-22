@@ -30,8 +30,6 @@ public class Event
     
     [SerializeField] public Sprite playerSprite;
 
-    
-    [SerializeField] public string buttonText;
 
     [SerializeField] private List<GameObject> interactableObjects;
     [SerializeField] private bool goodDecision = true;

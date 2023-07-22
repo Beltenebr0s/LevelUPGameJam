@@ -8,7 +8,6 @@ using JetBrains.Annotations;
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject HUD;
@@ -17,16 +16,13 @@ public class MenuController : MonoBehaviour
 
     private GameObject tasksMenu;
     private Animator tasksMenuAnim;
+    private ButtonChangeToogle tasksMenuBtnScript;
 
-    private bool mainMenuIsOpen = false;
     private bool pauseMenuIsOpen = false;
     private bool tasksMenuIsOpen = false;
 
     void Start()
     {
-        mainMenu.transform.Find("Start Btn").gameObject.GetComponent<Button>().onClick.AddListener(StartGame);
-        mainMenu.transform.Find("Settings Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenSettings);
-        mainMenu.transform.Find("Quit Btn").gameObject.GetComponent<Button>().onClick.AddListener(QuitGame);
 
         pauseMenu.transform.Find("Resume Btn").gameObject.GetComponent<Button>().onClick.AddListener(pauseController.Resume);
         pauseMenu.transform.Find("Settings Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenSettings);
@@ -38,6 +34,7 @@ public class MenuController : MonoBehaviour
 
         tasksMenu.transform.Find("Btn").gameObject.GetComponent<Button>().onClick.AddListener(ToogleNotePopup);
 
+        tasksMenuBtnScript = tasksMenu.transform.Find("Btn").gameObject.GetComponent<ButtonChangeToogle>();
         tasksMenuAnim = tasksMenu.GetComponent<Animator>();
     }
 
@@ -94,17 +91,14 @@ public class MenuController : MonoBehaviour
 
     public void OpenSettings()
     {
-        mainMenuIsOpen = mainMenu.activeSelf;
         pauseMenuIsOpen = pauseMenu.activeSelf;
         settingsMenu.SetActive(true);
-        mainMenu.SetActive(false);
         pauseMenu.SetActive(false);
     }
 
     public void CloseSettings() 
     { 
         settingsMenu.SetActive(false);
-        mainMenu.SetActive(mainMenuIsOpen);
         pauseMenu.SetActive(pauseMenuIsOpen);
     }
 
@@ -113,22 +107,19 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void CloseMainMenu()
-    {
-        mainMenu.SetActive(false);
-    }
-
     public void ToogleNotePopup()
     { 
         if (tasksMenuIsOpen)
         {
             pauseController.MenulessResume();
+            tasksMenuBtnScript.UnpressButton();
             tasksMenuAnim.SetBool("open", false);
             tasksMenuIsOpen = false;
         }
         else
         {
             pauseController.MenulessPause();
+            tasksMenuBtnScript.PressButton();
             tasksMenuAnim.SetBool("open", true);
             tasksMenuIsOpen = true;
         }
