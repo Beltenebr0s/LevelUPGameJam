@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public float baseSpeed = 5f;
     public float runningIncr = 2f;
+    [SerializeField] private float blinkRange;
     [SerializeField] private Animator animator;
     private float speed;
     public Rigidbody rb;
@@ -60,6 +61,11 @@ public class Player : MonoBehaviour
         if (System.Math.Abs(movH) + System.Math.Abs(movV) == 0)
         {
             rb.velocity = Vector3.zero;
+        }
+
+        if(Random.value < blinkRange)
+        {
+            animator.SetTrigger("blink");
         }
     }
 }

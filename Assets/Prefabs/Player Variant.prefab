@@ -292,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 5
   runningIncr: 2
+  blinkRange: 0.005
   animator: {fileID: 5032008192344783512}
   rb: {fileID: 0}
 --- !u!114 &6802678289407627373

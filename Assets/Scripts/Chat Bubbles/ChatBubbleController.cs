@@ -11,6 +11,7 @@ public class ChatBubbleController : MonoBehaviour
     [SerializeField] private GameObject chatBubble;
 
     private NPC NPCTriggered;
+    private Vector3 rescaling;
 
     public void CreateBubble(Transform parent, string tag)
     {
@@ -21,14 +22,12 @@ public class ChatBubbleController : MonoBehaviour
     {
         GameObject chatBubbleTransf = Instantiate(chatBubble, parent);
         chatBubbleTransf.transform.localPosition = relPos;
-        Vector3 rescaling = new Vector3(1/parent.transform.localScale.x, 1/ parent.transform.localScale.y, 1/ parent.transform.localScale.z);
+
+        rescaling.x = chatBubbleTransf.transform.localScale.x / parent.transform.localScale.x;
+        rescaling.y = chatBubbleTransf.transform.localScale.y / parent.transform.localScale.y;
+        rescaling.z = chatBubbleTransf.transform.localScale.z / parent.transform.localScale.z;
         chatBubbleTransf.transform.localScale = rescaling;
 
         chatBubbleTransf.GetComponent<ChatBubble>().Setup(newDialog);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
     }
 }

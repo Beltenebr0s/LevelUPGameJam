@@ -40,7 +40,7 @@ public class Trigger : MonoBehaviour
 
     private void Update()
     {
-        if (triggerActive && Input.GetKeyDown(KeyCode.Space))
+        if (triggerActive && Input.GetKeyDown(KeyCode.F))
         {
             coolActionCoroutine = StartCoroutine(WaitAndDoEvent());
             loadingCircle.StartLoading();

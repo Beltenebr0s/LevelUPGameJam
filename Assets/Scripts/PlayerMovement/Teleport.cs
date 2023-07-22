@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Teleport : MonoBehaviour
 {
     public Vector3 destination = Vector3.zero;
-    void Start()
+
+    [SerializeField] private TeleportController teleportController;
+    public Texture background;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            teleportController.PlayerIsHere(this);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.transform.position = destination;
+            teleportController.PlayerIsNotHere();
+            Destroy(transform.Find("Teleport Popup(Clone)").gameObject);
         }
     }
 }
