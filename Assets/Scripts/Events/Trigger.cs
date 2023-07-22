@@ -17,6 +17,7 @@ public class Trigger : MonoBehaviour
         this.enabled = false;
         objectRenderer = GetComponent<Renderer>();
         transform.GetChild(0).gameObject.SetActive(false);
+        playerAnim = GameObject.Find("Main Character").GetComponent<Animator>();
     }
 
     public void OnTriggerEnter(Collider other)
