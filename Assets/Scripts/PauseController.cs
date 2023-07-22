@@ -8,33 +8,23 @@ public class PauseController : MonoBehaviour
 
     public bool gameIsPaused = false;
     [SerializeField] private GameObject pauseMenu;
-    private Animator pauseMenuAnim;
-
-    private IEnumerator coroutine;
+    private PauseMenuAnimation pauseMenuAnim;
 
     void Start()
     {
-        pauseMenuAnim = pauseMenu.GetComponent<Animator>();
+        pauseMenuAnim = pauseMenu.GetComponent<PauseMenuAnimation>();
     }
 
     public void Resume()
     {
-        pauseMenuAnim.Play("Escape menu popdown");
-        StartCoroutine((IEnumerator)ResumeCoroutine(pauseMenuAnim, pauseMenu));
+        pauseMenuAnim.Hide();
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
 
-    public IEnumerator ResumeCoroutine(Animator anim, GameObject menu)
-    {
-        yield return new WaitForSeconds(0.55f);
-        menu.SetActive(false);
-    }
-
     public void Pause()
     {
-        pauseMenu.SetActive(true);
-        pauseMenuAnim.Play("Escape menu popup");
+        pauseMenuAnim.Show();
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
@@ -43,13 +33,23 @@ public class PauseController : MonoBehaviour
     {
         if(gameIsPaused)
         {
-            Time.timeScale = 1f;
-            gameIsPaused = false;
+            MenulessResume();
         }
         else
         {
-            Time.timeScale = 0f;
-            gameIsPaused = true;
+            MenulessPause();
         }
+    }
+
+    public void MenulessResume()
+    {
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+    }
+
+    public void MenulessPause()
+    {
+        Time.timeScale = 0f;
+        gameIsPaused = true;
     }
 }

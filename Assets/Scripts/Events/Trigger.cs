@@ -10,6 +10,8 @@ public class Trigger : MonoBehaviour
     private Coroutine coolActionCoroutine;
     public Event associatedEvent;
 
+    [SerializeField] private Animator playerAnim;
+
     private void Start()
     {
         this.enabled = false;
@@ -31,6 +33,7 @@ public class Trigger : MonoBehaviour
         {
             triggerActive = false;
             StopCoroutine(coolActionCoroutine);
+            playerAnim.SetBool("isSabotaging", false);
             loadingCircle.StopLoading();
         }
     }
@@ -54,11 +57,15 @@ public class Trigger : MonoBehaviour
 
     private IEnumerator WaitAndDoEvent()
     {
+        playerAnim.SetBool("isSabotaging", true);
+
         yield return new WaitForSeconds(3f); // Wait for 3 seconds
         
         DoEvent();
         
         loadingCircle.StopLoading();
+
+        playerAnim.SetBool("isSabotaging", false);
 
     }
 

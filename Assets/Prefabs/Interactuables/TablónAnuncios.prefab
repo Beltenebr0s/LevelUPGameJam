@@ -28,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6487599778149044938}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -18.05, y: 4.21, z: 19.896}
-  m_LocalScale: {x: 0.20000002, y: 5, z: 10}
+  m_LocalScale: {x: 0.20000003, y: 5, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5191490243268621}
@@ -143,16 +143,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingCircle: {fileID: 0}
   associatedEvent:
-    eventTitle: 
     storyLine: 0
     description: 
     characterSprite: {fileID: 0}
     playerThoughts: 
+    playerSprite: {fileID: 0}
     buttonText: 
     interactableObjects: []
     goodDecision: 1
     taskName: 
     eventFinished: 0
+  playerAnim: {fileID: 0}
 --- !u!1001 &4200188099092209489
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,11 +11,16 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject HUD;
+    [SerializeField] private GameObject dailyMenu;
     [SerializeField] private PauseController pauseController;
 
-    [SerializeField] private bool mainMenuIsOpen = false;
-    [SerializeField] private bool pauseMenuIsOpen = false;
+    private GameObject tasksMenu;
+    private Animator tasksMenuAnim;
 
+    private bool mainMenuIsOpen = false;
+    private bool pauseMenuIsOpen = false;
+    private bool tasksMenuIsOpen = false;
 
     void Start()
     {
@@ -28,10 +33,26 @@ public class MenuController : MonoBehaviour
         pauseMenu.transform.Find("Exit Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenMainMenu);
 
         settingsMenu.transform.Find("Back Btn").gameObject.GetComponent<Button>().onClick.AddListener(CloseSettings);
+
+        tasksMenu = HUD.transform.Find("Tasks").gameObject;
+
+        tasksMenu.transform.Find("Btn").gameObject.GetComponent<Button>().onClick.AddListener(ToogleNotePopup);
+
+        tasksMenuAnim = tasksMenu.GetComponent<Animator>();
     }
 
     void LateUpdate()
     {
+        if (dailyMenu.activeSelf)
+        {
+            HUD.SetActive(false);
+        }
+        else
+        {
+            HUD.SetActive(true);
+        }
+            
+            
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (settingsMenu.activeSelf)
@@ -40,7 +61,16 @@ public class MenuController : MonoBehaviour
             }
             else if (pauseController.gameIsPaused)
             {
-                pauseController.Resume();
+                if (tasksMenuIsOpen)
+                {
+                    tasksMenuAnim.SetBool("open", false);
+                    tasksMenuIsOpen = false;
+                    pauseController.Pause();
+                }
+                else
+                {
+                    pauseController.Resume();
+                }
             }
             else
             {
@@ -84,7 +114,24 @@ public class MenuController : MonoBehaviour
     {
         mainMenu.SetActive(false);
     }
-    
+
+    public void ToogleNotePopup()
+    { 
+        if (tasksMenuIsOpen)
+        {
+            pauseController.MenulessResume();
+            tasksMenuAnim.SetBool("open", false);
+            tasksMenuIsOpen = false;
+        }
+        else
+        {
+            pauseController.MenulessPause();
+            tasksMenuAnim.SetBool("open", true);
+            tasksMenuIsOpen = true;
+        }
+    }
+
+
     public AudioMixer audiomixer;
     public AudioMixer musicmixer;
     public AudioMixer effectmixer;

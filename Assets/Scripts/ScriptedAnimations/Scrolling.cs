@@ -8,8 +8,22 @@ public class Scrolling : MonoBehaviour
 
     [SerializeField] private RawImage image;
     [SerializeField] private float x, y;
+
+    private float dt, xmove, ymove;
     void Update()
     {
-        image.uvRect = new Rect(image.uvRect.position.x + x * Time.deltaTime, image.uvRect.position.y + y * Time.deltaTime, image.uvRect.size.x, image.uvRect.size.y);
+        dt = Time.unscaledDeltaTime;
+
+        if (Time.timeScale == 0)
+        {
+            xmove = image.uvRect.position.x - x * dt;
+            ymove = image.uvRect.position.y + y * dt;
+        }
+        else
+        {
+            xmove = image.uvRect.position.x + x * dt;
+            ymove = image.uvRect.position.y + y * dt;
+        }
+        image.uvRect = new Rect(xmove, ymove, image.uvRect.size.x, image.uvRect.size.y);
     }
 }

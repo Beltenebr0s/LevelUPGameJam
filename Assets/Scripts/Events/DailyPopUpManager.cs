@@ -22,6 +22,12 @@ public class DailyPopUpManager : MonoBehaviour
     private List<Event> eventList;
     private int currentEventIndex = 0;
 
+    [SerializeField] private Image speechBubble;
+    [SerializeField] private Image thoughtBubble;
+
+    [SerializeField] private List<Sprite> speechBubbles = new List<Sprite>();
+    [SerializeField] private List<Sprite> thoughtBubbles = new List<Sprite>();
+
     private void Start()
     {
         nextButton.onClick.AddListener(ShowNextEvent);
@@ -30,7 +36,7 @@ public class DailyPopUpManager : MonoBehaviour
     public void SetEventList(List<Event> events)
     {
         gameObject.SetActive(true);
-        Time.timeScale = 0f;
+        pauseController.MenulessPause();
         eventList = events;
         currentEventIndex = 0;
         ShowEvent(currentEventIndex);
@@ -50,6 +56,8 @@ public class DailyPopUpManager : MonoBehaviour
                 playerThoughts.text = currentEvent.playerThoughts;
                 playerSprite.sprite = currentEvent.playerSprite;
                 buttonText.text = currentEvent.buttonText;
+
+                thoughtBubble.sprite = thoughtBubbles[UnityEngine.Random.Range(0, thoughtBubbles.Count)];
             }
             else
             {
@@ -61,12 +69,17 @@ public class DailyPopUpManager : MonoBehaviour
                 playerThoughts.text = currentEvent.playerThoughts;
                 playerSprite.sprite = currentEvent.playerSprite;
                 buttonText.text = currentEvent.buttonText;
+
+                //characterSprite.SetNativeSize();
+
+                speechBubble.sprite = speechBubbles[UnityEngine.Random.Range(0, speechBubbles.Count)];
+                thoughtBubble.sprite = thoughtBubbles[UnityEngine.Random.Range(0, thoughtBubbles.Count)];
             }
         }
         else
         {
             gameObject.SetActive(false);
-            Time.timeScale = 1f;
+            pauseController.MenulessResume();
         }
     }
 
@@ -75,4 +88,5 @@ public class DailyPopUpManager : MonoBehaviour
         currentEventIndex++;
         ShowEvent(currentEventIndex);
     }
+
 }

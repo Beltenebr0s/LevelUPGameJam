@@ -56,5 +56,10 @@ public class Player : MonoBehaviour
             transform.localScale = scale;
             lookingLeft = true;
         }
+
+        if (System.Math.Abs(movH) + System.Math.Abs(movV) == 0)
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 }

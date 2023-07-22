@@ -5,7 +5,7 @@ using Unity.Collections.LowLevel.Unsafe;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]private Vector3 relativePos;
+    public Vector3 relativePos;
 
     [SerializeField] private GameObject player;
 

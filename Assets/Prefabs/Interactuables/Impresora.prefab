@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68339638263508974}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 28, y: 2, z: -16.81}
   m_LocalScale: {x: 4, y: 3, z: 6}
   m_ConstrainProportionsScale: 0
@@ -52,7 +52,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68339638263508974}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -122,16 +122,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingCircle: {fileID: 0}
   associatedEvent:
-    eventTitle: 
     storyLine: 0
     description: 
     characterSprite: {fileID: 0}
     playerThoughts: 
+    playerSprite: {fileID: 0}
     buttonText: 
     interactableObjects: []
     goodDecision: 1
     taskName: 
     eventFinished: 0
+  playerAnim: {fileID: 0}
 --- !u!65 &3508665701246166910
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1450422062800140662}
-  - component: {fileID: 9159679066871900793}
+  - component: {fileID: 5510667118539040209}
   m_Layer: 0
   m_Name: PauseController
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 1970796037903568411}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9159679066871900793
+--- !u!114 &5510667118539040209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,14 +90,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a04e0bd2c6c44eba04af7d4eb9a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventController: {fileID: 0}
+  eventController: {fileID: 5932829095774306412}
   gameOverUIPanel: {fileID: 0}
   endingText: {fileID: 0}
-  phisingBadEnding: 
-  bustedBadEnding: 
-  waterBadEnding: 
-  notEnoughBadEnding: 
-  defaultGoodEnding: 
+  phisingBadEnding: Who would have thought that pince Adetokunbo really existed...
+    Now Pollut INC. has all the founding they need to destroy the planet.
+  bustedBadEnding: "Final malo por poner el careto en el tabl\xF3n de anuncios\t"
+  waterBadEnding: Final malo por envenenar el agua - el remedio es peor que la enfermedad
+  notEnoughBadEnding: Final malo porque no has jugado una mierda
+  defaultGoodEnding: I managed to frustrate Pollut's plans!! It won't be enough to
+    save the world, but I made my effort count.
   transitionPanel: {fileID: 0}
   isFirstDay: 1
   player: {fileID: 0}
@@ -141,7 +143,7 @@ Transform:
   - {fileID: 4294575982051926062}
   - {fileID: 981940943510678938}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7798806447518399711
 GameObject:
@@ -190,9 +192,12 @@ MonoBehaviour:
   mainMenu: {fileID: 0}
   settingsMenu: {fileID: 0}
   pauseMenu: {fileID: 0}
-  pauseController: {fileID: 9159679066871900793}
-  mainMenuIsOpen: 0
-  pauseMenuIsOpen: 0
+  tasksMenu: {fileID: 0}
+  pauseController: {fileID: 5510667118539040209}
+  audiomixer: {fileID: 0}
+  musicmixer: {fileID: 0}
+  effectmixer: {fileID: 0}
+  BeaAnimated: {fileID: 0}
 --- !u!1 &8742996789423077217
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +248,10 @@ MonoBehaviour:
     bubbleRelativePos: {x: 0, y: 4}
     dialogos:
     - Hola caracola.
+  - name: Cynthia
+    bubbleRelativePos: {x: 0, y: 4}
+    dialogos:
+    - Quieres un piti?
   chatBubble: {fileID: 3602464338567745537, guid: 0b1138e2eb5f14f40b2a12352760576f, type: 3}
 --- !u!1001 &2948628149133978621
 PrefabInstance:
@@ -257,12 +266,211 @@ PrefabInstance:
       value: EventManager
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
-      propertyPath: days.Array.data[0].events.Array.data[0].buttonText
+      propertyPath: days.Array.data[0].events.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].taskName
       value: Plant elderflower tree in the park.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
-      propertyPath: days.Array.data[0].events.Array.data[1].buttonText
+      propertyPath: days.Array.data[0].events.Array.data[1].taskName
       value: Feed the paper shredder.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[2].taskName
+      value: 'Reschedule Corp. Se meeting. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[3].taskName
+      value: "\u201CSpike\u201D the water in the water tank."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[4].taskName
+      value: "Reply to \u201Curgent\u201D and \u201Cdefinitely true\u201D emails."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[5].taskName
+      value: Cut off electricity from AC.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[0].taskName
+      value: Water elderflower tree.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[1].taskName
+      value: Have a talk with the printer.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[2].taskName
+      value: Wreck beamer.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[3].taskName
+      value: "Help Adetokunbo with his \u201Curgent\u201D and \u201Cdefinitely true\u201D
+        requests."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[4].taskName
+      value: Hang up posters for demonstration.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[5].taskName
+      value: "Cut off water from the boss\u2019 bathroom."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[0].taskName
+      value: Fertilize elderflower tree.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[1].taskName
+      value: Bring servers down.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[2].taskName
+      value: "Oh no, there seems to be a \"fire\"! What should I do\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[3].taskName
+      value: "Help Adetokunbo get \u201Cplane tickets\u201D to \u201Ccome to our
+        country\u201D."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[4].taskName
+      value: Get Cynthia even more break time by cutting the electricity of the reception
+        area off.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].storyLine
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[2].storyLine
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[3].storyLine
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[4].storyLine
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[5].storyLine
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[1].storyLine
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[2].storyLine
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[3].storyLine
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[4].storyLine
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[5].storyLine
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[1].storyLine
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[2].storyLine
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[3].storyLine
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[4].storyLine
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].buttonText
+      value: What else?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].buttonText
+      value: What else?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[2].buttonText
+      value: What else?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[3].buttonText
+      value: Shut up already
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[4].buttonText
+      value: Hmmm...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[5].buttonText
+      value: Hmmm...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[0].buttonText
+      value: What else?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[1].buttonText
+      value: What else?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[2].buttonText
+      value: Shut up already
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[3].buttonText
+      value: Hmmm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[4].buttonText
+      value: Hmm...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[5].buttonText
+      value: Hmmmm
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[0].buttonText
+      value: What else?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[1].buttonText
+      value: What else?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[2].buttonText
+      value: Shut up already
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[3].buttonText
+      value: Hmmm...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[4].buttonText
+      value: Hmmm...
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[0].description
@@ -279,13 +487,425 @@ PrefabInstance:
         wait to taste that sweet bottled water!"
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[2].description
+      value: "Today, the boss is meeting with Corp. Se to seal the deal on _________
+        . This is a game changer for our company, so please, just try to avoid being
+        anywhere near any Corp. Se representatives, we don\u2019t want you scaring
+        them away."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[3].description
+      value: "The Ministry of Health and Wellbeing is sending a couple of inspectors
+        today for the yearly review. After the last one of Bob\u2019s office parties,
+        we can\u2019t mess this up, so I have removed the coffee machine from the
+        break room. I\u2019m sorry Bob, you\u2019ll have to refill your mug with
+        water."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[0].description
+      value: We managed to send the paperwork for the heliport to the city hall yesterday,
+        and it will take them a day to review it. But fear not, it will be built
+        sooner than you think! I hope you have already asked for a loan to buy a
+        helicopter. I sure have! It is going to be very expensive, but worth it!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[1].description
+      value: "Apparently, someone lost yesterday the plans for the water bottling
+        facility that is to be constructed at the Niagara Falls. I don\u2019t know
+        how someone manages to lose a two hundred-page folder, perhaps we should
+        ask Bob. Regardless, we have to print them again today."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[2].description
+      value: "Despite my clear advice yesterday, someone messed up and the meeting
+        with Corp. Se did not take place yesterday. Luckily, they were willing to
+        meet with us again, and the boss will be with them today in the projection
+        room. This time, please stay clear of the whole floor, let\u2019s not botch
+        things again."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[0].description
+      value: "We got the approval from city hall to build the heliport!! The builders
+        will get here today, we just have to wait for an ecology inspector to do
+        some dumb research on the plants there. I already got my helicopter, although
+        I don\u2019t really have a heliport close to my house."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[1].description
+      value: We still have to send the plans for the water bottling facility, since
+        yesterday, the printer broke down. But we have thought, why not use actual
+        modern technology, and not some thirty-year-old crap? So we will be sending
+        them today by email, since they are already uploaded to our servers. We are
+        doing a final check before sending them, but this should be over and done
+        this evening.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[2].description
+      value: "Since everything breaking seems to be a thing is this office, the beamer
+        in the projection room also broke yesterday, but we have installed an indestructible
+        one. Please, Bob, refrain from watching any movies there today, the boss
+        will be meeting there with the Corp. Se, who very kindly accepted to have
+        another meeting with us, although they also said this will be the last one.
+        This time I don\u2019t even want you looking at them, just stay in your cubicle
+        and under no circumstances leave. I don\u2019t care if the office is on fire,
+        just stay there!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[4].description
+      value: I know Cynthia is not actually helping the company get richer, but I
+        bet she would appreciate having even less work to do, and the company would
+        definitely not enjoy that.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[2].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[2].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[3].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[4].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[4].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[5].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[5].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[0].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[0].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[1].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[1].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[2].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[2].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[3].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[3].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[4].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[5].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[5].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[0].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[0].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[1].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[1].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[2].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[2].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[3].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[4].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[4].playerSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].playerThoughts
+      value: "But in front of the building there is a small park, the only one in
+        the whole block! If I manage to plant there my elderflower tree they won\u2019t
+        be able to destroy the part, since it is a protected species\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].playerThoughts
+      value: "Maybe I could send them to the paper shredder\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[2].playerThoughts
+      value: Those two can never meet, that would be catastrophic! Maybe I can wait
+        for Cynthia to go to one of her many smoke breaks and fiddle with the computer
+        at the reception.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[3].playerThoughts
+      value: "What? No coffee?? What am I going to drink today? Water?? Water\u2026
+        Isn\u2019t there a water tank on the rooftop? The health inspectors would
+        not be happy is the water is undrinkable\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[4].playerThoughts
+      value: "The boss gets a lot of emails every day, I\u2019m sure there are some
+        interesting ones in his spam folder he won\u2019t mind me answering to."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[5].playerThoughts
+      value: "I\u2019m tired of coming to the office and freezing inside when the
+        weather is very nice outside. This time I\u2019m cutting its electricity
+        off!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[0].playerThoughts
+      value: This guy truly has no brains. I have to check on the elderflower tree,
+        maybe it needs a bit of water.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[1].playerThoughts
+      value: " I\u2019m not sure how would you print them if the printer were to
+        be \u201Cindisposed\u201D."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[2].playerThoughts
+      value: "For real? They are very persistent! But let\u2019s see how you present
+        anything without a beamer to do so."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[3].playerThoughts
+      value: I have to check if the Nigerian Prince Adetokunbo is still in touch
+        with the boss, hehehe.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[4].playerThoughts
+      value: "Someone from the activist group sent me the poster for the next demonstration.
+        Maybe I can hang them on the bulletin board, but they do have my face in
+        them\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[5].playerThoughts
+      value: "Cynthia told me that the boss has a bathtub in his office. Why on earth
+        would he have that?? Bathtubs are such an unnecessary waste of water, and
+        he has one in the office?? Next time you want to have a bath, you\u2019re
+        going to have to filling using cups from the break room."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[0].playerThoughts
+      value: This inspector might be exactly what I needed! I might have to add some
+        fertilizer to the tree for it to grow a bit faster.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[1].playerThoughts
+      value: "You mean the servers that run on coal plants\u2019 electricity? It
+        would truly be a shame if something were to happen to them\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[2].playerThoughts
+      value: "This is it, if I manage to interrupt their meeting, this deal is over
+        and done with. He said something about a hypothetical fire, but then I would
+        have hypothetically to trigger the fire alarm, hypothetically\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[3].playerThoughts
+      value: "The Nigerian Prince Adetokunbo said he would need more help in his
+        emails, although he seems to be getting kind of serious\u2026 Well, I simply
+        can\u2019t let this opportunity pass. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[4].playerThoughts
+      value: I know Cynthia is not actually helping the company get richer, but I
+        bet she would appreciate having even less work to do, and the company would
+        definitely not enjoy that.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[0].characterSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8e63e484bf66e4f4cb86ded9c77e93d8, type: 3}
+      objectReference: {fileID: 21300000, guid: fb6eb95f7be68ae42bd2f65e772ba5c3, type: 3}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[1].characterSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 88d355bbd51364a408e11dd5e551eb4b, type: 3}
+      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[2].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[3].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[5].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[0].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb6eb95f7be68ae42bd2f65e772ba5c3, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[1].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[2].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[3].characterSprite
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[4].characterSprite
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[5].characterSprite
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[0].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb6eb95f7be68ae42bd2f65e772ba5c3, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[1].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[2].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[3].characterSprite
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[4].characterSprite
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[0].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[1].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[2].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[3].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[4].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[5].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[0].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[1].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[2].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[3].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[4].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[1].events.Array.data[5].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[0].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[1].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[2].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[3].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[2].events.Array.data[4].interactableObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8963514830128896453, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -335,6 +955,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+--- !u!114 &5932829095774306412 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+  m_PrefabInstance: {fileID: 2948628149133978621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacf8c3a0b500a546868363159c11219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6093208197711950392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8963514830128896453, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
