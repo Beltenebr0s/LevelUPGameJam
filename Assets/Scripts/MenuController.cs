@@ -43,13 +43,16 @@ public class MenuController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (dailyMenu.activeSelf)
+        if (dailyMenu != null)
         {
-            HUD.SetActive(false);
-        }
-        else
-        {
-            HUD.SetActive(true);
+            if (dailyMenu.activeSelf)
+            {
+                HUD.SetActive(false);
+            }
+            else
+            {
+                HUD.SetActive(true);
+            }
         }
             
             
@@ -107,7 +110,7 @@ public class MenuController : MonoBehaviour
 
     public void OpenMainMenu() 
     { 
-        mainMenu.SetActive(true); 
+        SceneManager.LoadScene(0);
     }
 
     public void CloseMainMenu()
