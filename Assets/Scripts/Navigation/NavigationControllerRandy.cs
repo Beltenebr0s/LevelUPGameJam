@@ -35,7 +35,7 @@ public class NavigationControllerRandy : MonoBehaviour
         {
             if(currentArea == NavigationArea.DEFAULT)
             {
-                if (goToComputer)
+                if (Random.value <= 0.3)
                 {
                     target = prevToComputerTransform;
                     currentArea = NavigationArea.PREV_TO_COMPUTER;
