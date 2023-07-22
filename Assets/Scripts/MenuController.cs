@@ -63,9 +63,11 @@ public class MenuController : MonoBehaviour
             {
                 if (tasksMenuIsOpen)
                 {
+                    tasksMenuBtnScript.UnpressButton();
                     tasksMenuAnim.SetBool("open", false);
                     tasksMenuIsOpen = false;
                     pauseController.Pause();
+
                 }
                 else
                 {

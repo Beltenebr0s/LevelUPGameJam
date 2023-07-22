@@ -35,7 +35,7 @@ Transform:
   - {fileID: 6619758755421589743}
   - {fileID: 1860036754514928956}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2390223807316782740
 GameObject:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: -588, y: 0, z: -7.8}
   teleportController: {fileID: 0}
-  background: {fileID: 2800000, guid: 73ad9933fd82eac4c846d813042def6c, type: 3}
+  background: {fileID: 0}
 --- !u!1 &8916164445965548545
 GameObject:
   m_ObjectHideFlags: 0

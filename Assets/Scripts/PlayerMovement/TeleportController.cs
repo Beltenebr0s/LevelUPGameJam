@@ -22,7 +22,16 @@ public class TeleportController : MonoBehaviour
         if(closestTeleport != null && Input.GetKeyDown(KeyCode.F))
         {
             player.transform.position = closestTeleport.destination;
-            backgroundCanvas.texture = closestTeleport.background;
+            if (closestTeleport.background != null)
+            {
+                backgroundCanvas.gameObject.SetActive(true);
+                backgroundCanvas.texture = closestTeleport.background;
+            }
+            else
+            {
+                backgroundCanvas.gameObject.SetActive(false);
+            }
+            
         }
     }
 

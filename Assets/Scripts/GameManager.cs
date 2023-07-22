@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DayEventController eventController;
     [SerializeField] private GameObject gameOverUIPanel;
     [SerializeField] private TMP_Text endingText;
-    
+    [SerializeField] private RawImage backgroundCanvas;
+    [SerializeField] private Texture defaultBackground;
+
     [TextAreaAttribute(5, 2)]
     [SerializeField] private string phisingBadEnding;
 
@@ -75,7 +77,7 @@ public class GameManager : MonoBehaviour
                     eventController.PlayDay(0);
                 }
                 gameRunning = true;
-                transitionPanel.SetActive(false);
+                StartCoroutine(TransitionFadeOut());
                 startDayTimerCount = 0f;
                 eventController.PlayDay(currentDay);
             }
@@ -89,6 +91,7 @@ public class GameManager : MonoBehaviour
         isFirstDay = true;
         gameRunning = false;
         transitionPanel.SetActive(true);
+        transitionPanel.GetComponent<RawImage>().CrossFadeAlpha(1f, 0f, true);
         gameOverUIPanel.SetActive(false);
         totalGoodEventsFinished = 0;
         startDayTimerCount = 0f;
@@ -99,7 +102,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        transitionPanel.SetActive(false);
+        StartCoroutine(TransitionFadeOut());
         Time.timeScale = 0f;
         if(totalGoodEventsFinished < requiredGoodEvents)
         {
@@ -152,10 +155,10 @@ public class GameManager : MonoBehaviour
     {
         CheckDayResults();
         currentDay++;
-        transitionPanel.SetActive(true);
+        StartCoroutine(TransitionFadeIn());
+        StartCoroutine(PlayerTeleport());
         gameRunning = false;
         startDayTimerCount = 0f;
-        player.transform.position = startingPosition.position;
         eventController.currentDay.TearDownEvents();
         if(currentDay > 2 )
         {
@@ -198,5 +201,31 @@ public class GameManager : MonoBehaviour
     public void PlayerCaught()
     {
         Debug.Log("Perdiste porque te pillaron sin trabajar");
+    }
+
+    private IEnumerator TransitionFadeIn()
+    {
+        
+        transitionPanel.SetActive(true);
+        transitionPanel.GetComponent<RawImage>().CrossFadeAlpha(0f, 0f, true);
+        transitionPanel.GetComponent<RawImage>().CrossFadeAlpha(1f, 1f, true);
+        yield return new WaitForSecondsRealtime(1);
+
+    }
+
+    private IEnumerator TransitionFadeOut()
+    {
+        transitionPanel.SetActive(true);
+        transitionPanel.GetComponent<RawImage>().CrossFadeAlpha(1f, 0f, true);
+        transitionPanel.GetComponent<RawImage>().CrossFadeAlpha(0f, 1f, true);
+        yield return new WaitForSecondsRealtime(1);
+        transitionPanel.SetActive(false);
+    }
+
+    private IEnumerator PlayerTeleport()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        player.transform.position = startingPosition.position;
+        backgroundCanvas.texture = defaultBackground;
     }
 }
