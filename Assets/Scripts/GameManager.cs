@@ -194,4 +194,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void PlayerCaught()
+    {
+        Debug.Log("Perdiste porque te pillaron sin trabajar");
+    }
 }
