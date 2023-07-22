@@ -249,8 +249,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 559.36774, y: -1052.8701}
-  m_SizeDelta: {x: 734.0717, y: 475.8472}
+  m_AnchoredPosition: {x: 507.14557, y: -1073.8269}
+  m_SizeDelta: {x: 864.6223, y: 588.0925}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6592213364350410583
 CanvasRenderer:
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c84103ae468ca6e46b733d7d708d3f40, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -354,7 +354,6 @@ MonoBehaviour:
   characterSprite: {fileID: 8739944422217287525}
   playerSprite: {fileID: 456393635129788725}
   playerThoughts: {fileID: 586239937217174152}
-  buttonText: {fileID: 2096482303676550677}
   nextButton: {fileID: 761644361253785218}
   pauseController: {fileID: 0}
   speechBubble: {fileID: 2592012858939634965}
@@ -3555,7 +3554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 8.184, y: -235}
+  m_AnchoredPosition: {x: 3.183971, y: -286}
   m_SizeDelta: {x: 632.485, y: 370.8612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5417061745452685657
@@ -4218,7 +4217,7 @@ RectTransform:
   - {fileID: 1754489642572058229}
   - {fileID: 1162586506146254148}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4904,14 +4903,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.509434, g: 0.28888977, b: 0.21386614, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9c1c832c94e5c9142ba88e1204192edd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6603,7 +6602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25}
+  m_AnchoredPosition: {x: 0.000029087, y: -61}
   m_SizeDelta: {x: 250, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &370067093447979268
