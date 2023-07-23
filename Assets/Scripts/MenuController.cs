@@ -20,6 +20,7 @@ public class MenuController : MonoBehaviour
 
     private bool pauseMenuIsOpen = false;
     private bool tasksMenuIsOpen = false;
+    public GameObject introPanel;
 
     void Start()
     {
@@ -36,6 +37,8 @@ public class MenuController : MonoBehaviour
 
         tasksMenuBtnScript = tasksMenu.transform.Find("Btn").gameObject.GetComponent<ButtonChangeToogle>();
         tasksMenuAnim = tasksMenu.GetComponent<Animator>();
+
+        introPanel.SetActive(false);
     }
 
     void LateUpdate()
@@ -79,6 +82,11 @@ public class MenuController : MonoBehaviour
                 pauseController.Pause();
             }
         }
+    }
+
+    public void ShowIntro()
+    {
+        introPanel.SetActive(true);
     }
 
     public void StartGame()
