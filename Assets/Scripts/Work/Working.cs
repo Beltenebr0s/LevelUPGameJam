@@ -21,7 +21,7 @@ public class Working : MonoBehaviour
         {
             if (timer >= timeWithoutWorkingPermitted)
             {
-                GameManager.Instance.PlayerCaught();
+                //GameManager.Instance.PlayerCaught();
             }
             timer += Time.deltaTime;
         }
@@ -33,7 +33,7 @@ public class Working : MonoBehaviour
         {
             isWorking = true;
             timer = 0f;
-            playerAnim.SetBool("isSabotaging", true);
+            //playerAnim.SetBool("isSabotaging", true);
         }
     }
 
@@ -42,7 +42,7 @@ public class Working : MonoBehaviour
         if(other.gameObject.name == "OrdenadorPlayer")
         {
             isWorking = false;
-            playerAnim.SetBool("isSabotaging", false);
+            //playerAnim.SetBool("isSabotaging", false);
         }
     }
 }
