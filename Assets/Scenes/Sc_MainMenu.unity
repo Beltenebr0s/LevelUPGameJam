@@ -560,11 +560,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "The terrible business Pollut Inc. is going to destroy the enviroment for
-    profit! Even if you work there you can\xB4t let it happen! \r\n\r\nSneak around
-    the office and sabotage your boss\xB4s plans to prevent a catastrophe. But beware
+    profit! Even if you work there you can't let it happen! \r\n\r\nSneak around
+    the office and sabotage your boss's plans to prevent a catastrophe. But beware
     because your boss and his nephew are short tempered and dont like people leaving
-    their workstation.\n\nCONTROL\n- AWSD for movement\n- Hold Shift to run\n- Press
-    F to sabotage"
+    their workstation. Don't forget to go back to your computer every once in a while!\n\nCONTROL\n-
+    AWSD for movement\n- Hold Shift to run\n- Press F to sabotage"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -591,7 +591,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.25
+  m_fontSize: 42.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2914,7 +2914,7 @@ MonoBehaviour:
   pauseController: {fileID: 0}
   introPanel: {fileID: 1825773772}
   audiomixer: {fileID: 24100000, guid: 9ef586505d95b324491697afdb570d7f, type: 2}
-  isaudioOn: 0
+  isaudioOn: 1
   mainvolume: 0
   BeaAnimated: {fileID: 1531941335}
 --- !u!114 &1438034597
