@@ -26,4 +26,12 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.PlayerCaught();
+        }
+    }
+
 }

@@ -60,6 +60,7 @@ public class MenuController : MonoBehaviour
         {
             if (settingsMenu.activeSelf)
             {
+                Vuelveahi();
                 CloseSettings();
             }
             else if (pauseController.gameIsPaused)

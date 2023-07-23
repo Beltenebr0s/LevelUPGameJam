@@ -9,6 +9,8 @@ TagManager:
   - Cynthia
   - NPC Computer
   - NPC Coffee
+  - Randy
+  - Boss
   layers:
   - Default
   - TransparentFX
