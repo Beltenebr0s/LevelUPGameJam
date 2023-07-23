@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 public class LookAtCamera : MonoBehaviour
 {
     private float distToCameraZ;
     private GameObject mainCamera;
+    private int number;
 
     private void Start()
     {
@@ -15,28 +17,16 @@ public class LookAtCamera : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (gameObject.GetComponent<Renderer>() != null)
+        if (GetComponent<Renderer>() != null)
         {
-            if (mainCamera.transform.position.z - distToCameraZ < transform.position.z)
-            {
-                gameObject.GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("Back");
-            }
-            else
-            {
-                gameObject.GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("Front");
-            }
+            number = 50 + (int)Mathf.Round(transform.position.z);
+            GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("New Layer " + number.ToString());
         }
 
-        if (gameObject.GetComponent<SortingGroup>() != null)
+        if (GetComponent<SortingGroup>() != null)
         {
-            if (mainCamera.transform.position.z - distToCameraZ < transform.position.z)
-            {
-                gameObject.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("Back");
-            }
-            else
-            {
-                gameObject.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("Front");
-            }
+            number = 50 + (int)Mathf.Round(transform.position.z);      
+            GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("New Layer " + number.ToString());
         }
 
         transform.forward = Camera.main.transform.forward;

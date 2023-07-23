@@ -16,6 +16,7 @@ public class Trigger : MonoBehaviour
     [SerializeField] private Vector3 relPos;
 
     private GameObject interactuable;
+    private SpriteChange spriteChange;
     private Vector3 rescaling;
 
     private void Start()
@@ -25,6 +26,7 @@ public class Trigger : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
         playerAnim = GameObject.Find("Main Character").GetComponent<Animator>();
         interactuable = transform.Find("Interactuable").gameObject;
+        spriteChange = interactuable.GetComponent<SpriteChange>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -33,8 +35,7 @@ public class Trigger : MonoBehaviour
         {
             Debug.Log("[" + this.gameObject.name + "] Trigger enter");
             triggerActive = true;
-            interactuable.SetActive(false);
-            Create(transform);
+            spriteChange.SetSprite2();
         }
     }
 
@@ -43,11 +44,13 @@ public class Trigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             triggerActive = false;
-            StopCoroutine(coolActionCoroutine);
             playerAnim.SetBool("isSabotaging", false);
             loadingCircle.StopLoading();
-            interactuable.SetActive(true);
-            Destroy(transform.Find("F Popup(Clone)").gameObject);
+            spriteChange.SetSprite1();
+            if(coolActionCoroutine != null)
+            {
+                StopCoroutine(coolActionCoroutine);
+            }
         }
     }
 
@@ -85,17 +88,6 @@ public class Trigger : MonoBehaviour
     public void SetAssociatedEvent(Event ev)
     {
         associatedEvent = ev;
-    }
-
-    public void Create(Transform parent)
-    {
-        GameObject teleportPopupTransf = Instantiate(teleportPopup, parent);
-        teleportPopupTransf.transform.localPosition = relPos;
-
-        rescaling.x = teleportPopupTransf.transform.localScale.x / parent.transform.localScale.x;
-        rescaling.y = teleportPopupTransf.transform.localScale.y / parent.transform.localScale.y;
-        rescaling.z = teleportPopupTransf.transform.localScale.z / parent.transform.localScale.z;
-        teleportPopupTransf.transform.localScale = rescaling;
     }
 
 }

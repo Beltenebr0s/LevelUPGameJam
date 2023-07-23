@@ -46,12 +46,303 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Back
+  - name: New Layer 1
     uniqueID: 837318879
     locked: 0
-  - name: Player
+  - name: New Layer 2
     uniqueID: 1778310943
     locked: 0
-  - name: Front
+  - name: New Layer 3
     uniqueID: 1304064185
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 4270429331
+    locked: 0
+  - name: New Layer 5
+    uniqueID: 2078433845
+    locked: 0
+  - name: New Layer 6
+    uniqueID: 4174352815
+    locked: 0
+  - name: New Layer 7
+    uniqueID: 4190939959
+    locked: 0
+  - name: New Layer 8
+    uniqueID: 3953924279
+    locked: 0
+  - name: New Layer 9
+    uniqueID: 27895735
+    locked: 0
+  - name: New Layer 10
+    uniqueID: 4169430129
+    locked: 0
+  - name: New Layer 11
+    uniqueID: 930069335
+    locked: 0
+  - name: New Layer 12
+    uniqueID: 651037961
+    locked: 0
+  - name: New Layer 13
+    uniqueID: 3842696545
+    locked: 0
+  - name: New Layer 14
+    uniqueID: 1046824375
+    locked: 0
+  - name: New Layer 15
+    uniqueID: 3497271731
+    locked: 0
+  - name: New Layer 16
+    uniqueID: 1394822953
+    locked: 0
+  - name: New Layer 17
+    uniqueID: 3860001231
+    locked: 0
+  - name: New Layer 18
+    uniqueID: 2122382369
+    locked: 0
+  - name: New Layer 19
+    uniqueID: 3865513117
+    locked: 0
+  - name: New Layer 20
+    uniqueID: 3679536763
+    locked: 0
+  - name: New Layer 21
+    uniqueID: 3384341003
+    locked: 0
+  - name: New Layer 22
+    uniqueID: 1325090875
+    locked: 0
+  - name: New Layer 23
+    uniqueID: 1027261135
+    locked: 0
+  - name: New Layer 24
+    uniqueID: 2335432671
+    locked: 0
+  - name: New Layer 25
+    uniqueID: 4113730345
+    locked: 0
+  - name: New Layer 26
+    uniqueID: 3214178341
+    locked: 0
+  - name: New Layer 27
+    uniqueID: 3161690201
+    locked: 0
+  - name: New Layer 28
+    uniqueID: 2911946351
+    locked: 0
+  - name: New Layer 29
+    uniqueID: 1658173983
+    locked: 0
+  - name: New Layer 30
+    uniqueID: 2166765205
+    locked: 0
+  - name: New Layer 31
+    uniqueID: 2990331827
+    locked: 0
+  - name: New Layer 32
+    uniqueID: 2961201217
+    locked: 0
+  - name: New Layer 33
+    uniqueID: 3525066833
+    locked: 0
+  - name: New Layer 34
+    uniqueID: 1454006983
+    locked: 0
+  - name: New Layer 35
+    uniqueID: 2745023993
+    locked: 0
+  - name: New Layer 36
+    uniqueID: 1795238419
+    locked: 0
+  - name: New Layer 37
+    uniqueID: 4148932687
+    locked: 0
+  - name: New Layer 38
+    uniqueID: 1513928913
+    locked: 0
+  - name: New Layer 39
+    uniqueID: 4223038719
+    locked: 0
+  - name: New Layer 40
+    uniqueID: 1997669499
+    locked: 0
+  - name: New Layer 41
+    uniqueID: 3311092369
+    locked: 0
+  - name: New Layer 42
+    uniqueID: 4072660503
+    locked: 0
+  - name: New Layer 43
+    uniqueID: 59977445
+    locked: 0
+  - name: New Layer 44
+    uniqueID: 1578558561
+    locked: 0
+  - name: New Layer 45
+    uniqueID: 1549731121
+    locked: 0
+  - name: New Layer 46
+    uniqueID: 197691443
+    locked: 0
+  - name: New Layer 47
+    uniqueID: 1140492613
+    locked: 0
+  - name: New Layer 48
+    uniqueID: 2773568789
+    locked: 0
+  - name: New Layer 49
+    uniqueID: 3544550351
+    locked: 0
+  - name: New Layer 50
+    uniqueID: 2998724383
+    locked: 0
+  - name: New Layer 51
+    uniqueID: 3043091687
+    locked: 0
+  - name: New Layer 52
+    uniqueID: 1371121193
+    locked: 0
+  - name: New Layer 53
+    uniqueID: 1937891621
+    locked: 0
+  - name: New Layer 54
+    uniqueID: 3636757315
+    locked: 0
+  - name: New Layer 55
+    uniqueID: 2444095033
+    locked: 0
+  - name: New Layer 56
+    uniqueID: 3301189663
+    locked: 0
+  - name: New Layer 57
+    uniqueID: 2020387397
+    locked: 0
+  - name: New Layer 58
+    uniqueID: 2130301675
+    locked: 0
+  - name: New Layer 59
+    uniqueID: 2530675007
+    locked: 0
+  - name: New Layer 60
+    uniqueID: 3427843005
+    locked: 0
+  - name: New Layer 61
+    uniqueID: 178061045
+    locked: 0
+  - name: New Layer 62
+    uniqueID: 2037013243
+    locked: 0
+  - name: New Layer 63
+    uniqueID: 1172120121
+    locked: 0
+  - name: New Layer 64
+    uniqueID: 2341805919
+    locked: 0
+  - name: New Layer 65
+    uniqueID: 4130095693
+    locked: 0
+  - name: New Layer 66
+    uniqueID: 2853451775
+    locked: 0
+  - name: New Layer 67
+    uniqueID: 3521073477
+    locked: 0
+  - name: New Layer 68
+    uniqueID: 6598605
+    locked: 0
+  - name: New Layer 69
+    uniqueID: 1056313499
+    locked: 0
+  - name: New Layer 70
+    uniqueID: 1693401269
+    locked: 0
+  - name: New Layer 71
+    uniqueID: 447405475
+    locked: 0
+  - name: New Layer 72
+    uniqueID: 172788381
+    locked: 0
+  - name: New Layer 73
+    uniqueID: 4275231987
+    locked: 0
+  - name: New Layer 74
+    uniqueID: 3222777217
+    locked: 0
+  - name: New Layer 75
+    uniqueID: 1428624797
+    locked: 0
+  - name: New Layer 76
+    uniqueID: 2233837217
+    locked: 0
+  - name: New Layer 77
+    uniqueID: 2907603941
+    locked: 0
+  - name: New Layer 78
+    uniqueID: 1707446461
+    locked: 0
+  - name: New Layer 79
+    uniqueID: 818681121
+    locked: 0
+  - name: New Layer 80
+    uniqueID: 3031046363
+    locked: 0
+  - name: New Layer 81
+    uniqueID: 1585822633
+    locked: 0
+  - name: New Layer 82
+    uniqueID: 2887062897
+    locked: 0
+  - name: New Layer 83
+    uniqueID: 782565135
+    locked: 0
+  - name: New Layer 84
+    uniqueID: 710687301
+    locked: 0
+  - name: New Layer 85
+    uniqueID: 3582062411
+    locked: 0
+  - name: New Layer 86
+    uniqueID: 3994095121
+    locked: 0
+  - name: New Layer 87
+    uniqueID: 1801888315
+    locked: 0
+  - name: New Layer 88
+    uniqueID: 3242849839
+    locked: 0
+  - name: New Layer 89
+    uniqueID: 3501820659
+    locked: 0
+  - name: New Layer 90
+    uniqueID: 2585059129
+    locked: 0
+  - name: New Layer 91
+    uniqueID: 3603772203
+    locked: 0
+  - name: New Layer 92
+    uniqueID: 1761475991
+    locked: 0
+  - name: New Layer 93
+    uniqueID: 370080279
+    locked: 0
+  - name: New Layer 94
+    uniqueID: 1387889937
+    locked: 0
+  - name: New Layer 95
+    uniqueID: 4064147139
+    locked: 0
+  - name: New Layer 96
+    uniqueID: 408846087
+    locked: 0
+  - name: New Layer 97
+    uniqueID: 588678619
+    locked: 0
+  - name: New Layer 98
+    uniqueID: 1654411433
+    locked: 0
+  - name: New Layer 99
+    uniqueID: 1436564809
+    locked: 0
+  - name: New Layer 100
+    uniqueID: 1508211213
     locked: 0

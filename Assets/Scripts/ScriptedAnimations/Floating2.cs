@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Floating2 : MonoBehaviour
 {
-    public float forceMax = 1f;
+    public float forceMax = 2f;
     public float forceMin = 0.05f;
-    public float change = 0.99f;
+    public float change = 0.95f;
     [SerializeField] private int increm = -1;
     [SerializeField] private float force;
     void Start()
     {
-        force = forceMax;
+        force = -forceMax;
     }
 
 
