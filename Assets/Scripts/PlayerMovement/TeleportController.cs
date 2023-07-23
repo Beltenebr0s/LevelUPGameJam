@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class TeleportController : MonoBehaviour
 {
-    [SerializeField] private GameObject teleportPopup;
+    [SerializeField] private GameObject fPopup;
     [SerializeField] private RawImage backgroundCanvas; 
     [SerializeField] private GameObject player;
     [SerializeField] private Vector3 relPos;
@@ -37,16 +37,16 @@ public class TeleportController : MonoBehaviour
 
     public void Create(Transform parent)
     {
-        GameObject teleportPopupTransf = Instantiate(teleportPopup, parent);
-        teleportPopupTransf.transform.localPosition = relPos;
+        GameObject fPopupTransf = Instantiate(fPopup, parent);
+        fPopupTransf.transform.localPosition = relPos;
 
-        Debug.Log(teleportPopupTransf.transform.localScale);
+        Debug.Log(fPopupTransf.transform.localScale);
         Debug.Log(parent.transform.localScale);
 
-        rescaling.x = teleportPopupTransf.transform.localScale.x / parent.transform.localScale.x;
-        rescaling.y = teleportPopupTransf.transform.localScale.y / parent.transform.localScale.y;
-        rescaling.z = teleportPopupTransf.transform.localScale.z / parent.transform.localScale.z;
-        teleportPopupTransf.transform.localScale = rescaling;
+        rescaling.x = fPopupTransf.transform.localScale.x / parent.transform.localScale.x;
+        rescaling.y = fPopupTransf.transform.localScale.y / parent.transform.localScale.y;
+        rescaling.z = fPopupTransf.transform.localScale.z / parent.transform.localScale.z;
+        fPopupTransf.transform.localScale = rescaling;
     }
 
     public void PlayerIsHere(Teleport teleport)

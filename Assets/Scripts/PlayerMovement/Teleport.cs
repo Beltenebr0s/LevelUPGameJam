@@ -24,7 +24,7 @@ public class Teleport : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             teleportController.PlayerIsNotHere();
-            Destroy(transform.Find("Teleport Popup(Clone)").gameObject);
+            Destroy(transform.Find("F Popup(Clone)").gameObject);
         }
     }
 }
