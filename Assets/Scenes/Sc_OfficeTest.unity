@@ -12991,21 +12991,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!114 &854944635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854944627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 873289dfa83c8d640acb824b8989d048, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWorking: 0
-  timeWithoutWorkingPermitted: 100
-  timer: 0
 --- !u!1 &868751349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 09c2059602de30142b8c2571d58fa66a, type: 3}
@@ -24824,6 +24809,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1930823861}
     - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: badEndingSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fab82bb4c122c06448e2bb81db85a76c, type: 3}
+    - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: bustedBadEnding
+      value: I shouldn't have shown my face in the poster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
       propertyPath: gameOverUIPanel
       value: 
       objectReference: {fileID: 1930823862}
@@ -24836,6 +24829,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1288520750}
     - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: goodEndingSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fe345c9318acab24089313a313cd1998, type: 3}
+    - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
       propertyPath: startingPosition
       value: 
       objectReference: {fileID: 1186489806}
@@ -24843,6 +24840,14 @@ PrefabInstance:
       propertyPath: defaultBackground
       value: 
       objectReference: {fileID: 2800000, guid: afd9efdd2b4aeb842bcbda41525bedf0, type: 3}
+    - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: notEnoughBadEnding
+      value: I couldn't do enough to save the planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: notWorkingBadEnding
+      value: They caught me not working :(
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31424,7 +31429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 272120176894603087, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 455981004381442005, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
       propertyPath: m_AnchorMax.x
@@ -31436,11 +31441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 455981004381442005, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 609
+      value: -247
       objectReference: {fileID: 0}
     - target: {fileID: 455981004381442005, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 465
+      value: -48
       objectReference: {fileID: 0}
     - target: {fileID: 599946519460340611, guid: 41c901c9d4e48774c98877a6011dfe72, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36149,9 +36154,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5032008192082149819, guid: f9da4f7b2f0463e4e9bafd76afba2650, type: 3}
       insertIndex: -1
       addedObject: {fileID: 854944633}
-    - targetCorrespondingSourceObject: {fileID: 5032008192082149819, guid: f9da4f7b2f0463e4e9bafd76afba2650, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 854944635}
   m_SourcePrefab: {fileID: 100100000, guid: f9da4f7b2f0463e4e9bafd76afba2650, type: 3}
 --- !u!1001 &5639210574404466618
 PrefabInstance:
