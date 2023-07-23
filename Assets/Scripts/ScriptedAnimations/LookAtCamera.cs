@@ -19,13 +19,13 @@ public class LookAtCamera : MonoBehaviour
     {
         if (GetComponent<Renderer>() != null)
         {
-            number = 50 + (int)Mathf.Round(transform.position.z);
-            GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("New Layer " + number.ToString());
+            number = 50 - (int)Mathf.Round(transform.position.z);
+            GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("New Layer " + number.ToString());
         }
 
         if (GetComponent<SortingGroup>() != null)
         {
-            number = 50 + (int)Mathf.Round(transform.position.z);      
+            number = 50 - (int)Mathf.Round(transform.position.z);      
             GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("New Layer " + number.ToString());
         }
 
