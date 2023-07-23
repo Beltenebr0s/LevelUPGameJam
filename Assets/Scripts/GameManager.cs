@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        player.transform.position = startingPosition.position;
         Time.timeScale = 1f;
         isFirstDay = true;
         gameRunning = false;

@@ -17,7 +17,6 @@ public class FieldOfView : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, hitDistance))
         {
-            Debug.Log("[" + this.gameObject.name + "] He visto a " + hit.collider.gameObject.name);
             if ( hit.collider.gameObject.CompareTag("Player"))
             {
                 GameManager.Instance.PlayerCaught();

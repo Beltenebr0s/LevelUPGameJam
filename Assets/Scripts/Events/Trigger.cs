@@ -5,7 +5,7 @@ using UnityEngine;
 public class Trigger : MonoBehaviour
 {
     public LoadingCircle loadingCircle;
-    private bool triggerActive = false;
+    public bool triggerActive = false;
     private Renderer objectRenderer;
     private Coroutine coolActionCoroutine;
     public Event associatedEvent;
@@ -24,6 +24,7 @@ public class Trigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("[" + this.gameObject.name + "] Trigger enter");
             triggerActive = true;
         }
     }
