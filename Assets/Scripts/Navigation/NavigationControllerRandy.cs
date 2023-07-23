@@ -23,6 +23,7 @@ public class NavigationControllerRandy : MonoBehaviour
 
     void Start()
     {
+        this.transform.position = new Vector3(-25, 0.5f, 16);
         nav = this.GetComponent<NavMeshAgent>();
         target = defaultNavigationNodes[0];
         nav.SetDestination(target.position);
