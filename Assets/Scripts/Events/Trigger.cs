@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Trigger : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Trigger : MonoBehaviour
     private Renderer objectRenderer;
     private Coroutine coolActionCoroutine;
     public Event associatedEvent;
+    public AudioSource SFX;
 
     [SerializeField] private Animator playerAnim;
 
@@ -60,6 +62,8 @@ public class Trigger : MonoBehaviour
         {
             coolActionCoroutine = StartCoroutine(WaitAndDoEvent());
             loadingCircle.StartLoading();
+            SFX.Play();
+           
         }
     }
 
