@@ -33,11 +33,11 @@ Transform:
   m_LocalScale: {x: 0.20000003, y: 5, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8699505283504398769}
   - {fileID: 5191490243268621}
+  - {fileID: 8699505283504398769}
   - {fileID: 243275904173760186}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &3326638845233283894
 MeshFilter:
@@ -156,6 +156,8 @@ MonoBehaviour:
     taskName: 
     eventFinished: 0
   playerAnim: {fileID: 0}
+  teleportPopup: {fileID: 0}
+  relPos: {x: 0, y: 0, z: 0}
 --- !u!1 &8350037753597072667
 GameObject:
   m_ObjectHideFlags: 0
