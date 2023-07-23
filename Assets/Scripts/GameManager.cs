@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string notEnoughBadEnding;
 
     [TextAreaAttribute(5, 2)]
+    [SerializeField] private string notWorkingBadEnding;
+
+    [TextAreaAttribute(5, 2)]
     [SerializeField] private string defaultGoodEnding;
 
     public GameObject transitionPanel;
@@ -200,7 +203,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayerCaught()
     {
-        Debug.Log("Perdiste porque te pillaron sin trabajar");
+        endImage.sprite = badEndingSprite;
+        endingText.SetText(notWorkingBadEnding);
+        gameOverUIPanel.SetActive(true);
     }
 
     private IEnumerator TransitionFadeIn()
