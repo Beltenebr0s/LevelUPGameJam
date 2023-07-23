@@ -2735,6 +2735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 223220956}
   - component: {fileID: 223220957}
+  - component: {fileID: 223220958}
   m_Layer: 0
   m_Name: WaterValve
   m_TagString: Untagged
@@ -2809,6 +2810,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &223220958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223220955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baab9371a02c9c04ba7227bd92fa1584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &238923055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a10c299db64645542bd77042d798a25a, type: 3}
@@ -8985,7 +8998,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 782472765533122427, guid: 8bcb29fd2f667a644a60ca878dabce95, type: 3}
       propertyPath: m_Name
-      value: "OrdenadorRecepci\xF3n"
+      value: OrdenadorRecepcion
       objectReference: {fileID: 0}
     - target: {fileID: 3083318139396350155, guid: 8bcb29fd2f667a644a60ca878dabce95, type: 3}
       propertyPath: playerAnim
@@ -15977,7 +15990,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1186489805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34, y: 2.55, z: 0}
+  m_LocalPosition: {x: 34, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19856,7 +19869,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4180371132826269930, guid: fc486d41f54b11745b16fe7d573ffe1b, type: 3}
       propertyPath: m_Name
-      value: "Dep\xF3sitoAgua"
+      value: DepositoAgua
       objectReference: {fileID: 0}
     - target: {fileID: 4780975326816254223, guid: fc486d41f54b11745b16fe7d573ffe1b, type: 3}
       propertyPath: m_RootOrder
@@ -19901,6 +19914,18 @@ PrefabInstance:
     - target: {fileID: 4780975326816254223, guid: fc486d41f54b11745b16fe7d573ffe1b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986615269820880215, guid: fc486d41f54b11745b16fe7d573ffe1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986615269820880215, guid: fc486d41f54b11745b16fe7d573ffe1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986615269820880215, guid: fc486d41f54b11745b16fe7d573ffe1b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.169
       objectReference: {fileID: 0}
     - target: {fileID: 9200384491303808094, guid: fc486d41f54b11745b16fe7d573ffe1b, type: 3}
       propertyPath: playerAnim
@@ -21405,6 +21430,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1930823851}
     - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 854944627}
+    - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
       propertyPath: endingText
       value: 
       objectReference: {fileID: 1930823861}
@@ -21417,9 +21446,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1930823849}
     - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: backgroundCanvas
+      value: 
+      objectReference: {fileID: 1288520750}
+    - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
       propertyPath: startingPosition
       value: 
       objectReference: {fileID: 1186489806}
+    - target: {fileID: 7451591017869014858, guid: 99520ee64bdccf14d80b0b5f0a85eecd, type: 3}
+      propertyPath: defaultBackground
+      value: 
+      objectReference: {fileID: 2800000, guid: afd9efdd2b4aeb842bcbda41525bedf0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28606,7 +28643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7cd1356650f08524aac62e5ba3f5a08b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b7d989277f156964b80323b42d91bbd4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
