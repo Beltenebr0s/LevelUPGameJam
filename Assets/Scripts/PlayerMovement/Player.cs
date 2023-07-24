@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Animator animator;
     private float speed;
     public Rigidbody rb;
-    private bool lookingLeft = true;
+    private bool lookingLeft = false;
 
     void Start()
     {

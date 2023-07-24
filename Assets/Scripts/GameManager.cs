@@ -193,7 +193,10 @@ public class GameManager : MonoBehaviour
         {
             GameManager.Instance.GameOver(badEndingCause);
         }
-        totalGoodEventsFinished += numEventsFinished;
+        else
+        {
+            totalGoodEventsFinished += numEventsFinished;
+        }
     }
 
     public void ReloadGame()

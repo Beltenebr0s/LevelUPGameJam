@@ -15,7 +15,7 @@ public class DayEventController : MonoBehaviour
     public ListaDeEventos checklist;
 
     private float timeCounter = 0f;
-    private float timeToHour = 30;
+    private float timeToHour = 15;
     private string minutes = ":00";
 
     void Update()

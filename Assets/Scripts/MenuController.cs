@@ -54,6 +54,18 @@ public class MenuController : MonoBehaviour
                 HUD.SetActive(true);
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            if (!pauseController.gameIsPaused)
+            {
+                ToogleNotePopup();
+            }
+            else if (pauseController.gameIsPaused && tasksMenuIsOpen)
+            {
+                ToogleNotePopup();
+            }
+        }
             
             
         if (Input.GetKeyDown(KeyCode.Escape))
