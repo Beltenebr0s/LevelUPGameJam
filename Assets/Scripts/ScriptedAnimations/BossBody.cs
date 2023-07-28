@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class BossBody : MonoBehaviour
 {
-    public float size = 1f;
-    public bool googlyEyesOn = false;
-
-
     public void HacerChikito()
     {
-        transform.localScale = Vector3.one * size;
-        transform.Find("GooglyEyes").gameObject.SetActive(googlyEyesOn);
+        transform.localScale = Vector3.one * Settings.bossSize;
+        transform.Find("GooglyEyes").gameObject.SetActive(Settings.googlyEyes);
     }
 }

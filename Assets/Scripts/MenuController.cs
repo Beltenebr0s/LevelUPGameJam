@@ -10,6 +10,8 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] private GameObject canvas;
     [SerializeField] private PauseController pauseController;
+    [SerializeField] private BossBody bossBody;
+    [SerializeField] private AudioSource buttonPress;
 
     private GameObject pauseMenu;
     private GameObject settingsMenu;
@@ -28,29 +30,9 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        pauseMenu = canvas.transform.Find("Pause menu").gameObject;
-        settingsMenu = canvas.transform.Find("Settings menu").gameObject;
-        HUD = canvas.transform.Find("HUD").gameObject;
-        dailyMenu = canvas.transform.Find("DailyPopups").gameObject;
-
-        tasksMenu = HUD.transform.Find("Tasks").gameObject;
-
-        pauseMenu.transform.Find("Resume Btn").gameObject.GetComponent<Button>().onClick.AddListener(pauseController.Resume);
-        pauseMenu.transform.Find("Settings Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenSettings);
-        pauseMenu.transform.Find("Exit Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenMainMenu);
-
-        settingsMenu.transform.Find("Back Btn").gameObject.GetComponent<Button>().onClick.AddListener(CloseSettings);
-        settingsMenu.transform.Find("Slider1").gameObject.GetComponent<Slider>().onValueChanged.AddListener(SetMusicVolume);
-        settingsMenu.transform.Find("Toggle1").gameObject.GetComponent<Toggle>().onValueChanged.AddListener(ToggleAudio);
-        settingsMenu.transform.Find("Slider2").gameObject.GetComponent<Slider>().onValueChanged.AddListener(SetEffectVolume);
-        //settingsMenu.transform.Find("Toggle2").gameObject.GetComponent<Toogle>().onValueChanged.AddListener();
-        settingsMenu.transform.Find("Slider3").gameObject.GetComponent<Slider>().onValueChanged.AddListener(SetBossSize);
-        settingsMenu.transform.Find("Toggle3").gameObject.GetComponent<Toggle>().onValueChanged.AddListener(ToggleGooglyEyes);
-
-        tasksMenu.transform.Find("Btn").gameObject.GetComponent<Button>().onClick.AddListener(ToogleNotePopup);
-
-        tasksMenuBtnScript = tasksMenu.transform.Find("Btn").gameObject.GetComponent<ButtonChangeToogle>();
-        tasksMenuAnim = tasksMenu.GetComponent<Animator>();
+        GetComponents();
+        AddListeners();
+        AdjustSettings();
 
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(false);
@@ -113,6 +95,54 @@ public class MenuController : MonoBehaviour
         }
     }
 
+    private void GetComponents()
+    {
+        pauseMenu = canvas.transform.Find("Pause menu").gameObject;
+        settingsMenu = canvas.transform.Find("Settings menu").gameObject;
+        HUD = canvas.transform.Find("HUD").gameObject;
+        dailyMenu = canvas.transform.Find("DailyPopups").gameObject;
+
+        tasksMenu = HUD.transform.Find("Tasks").gameObject;
+
+        tasksMenuBtnScript = tasksMenu.transform.Find("Btn").gameObject.GetComponent<ButtonChangeToogle>();
+        tasksMenuAnim = tasksMenu.GetComponent<Animator>();
+    }
+
+    private void AddListeners()
+    {
+        pauseMenu.transform.Find("Resume Btn").gameObject.GetComponent<Button>().onClick.AddListener(pauseController.Resume);
+        pauseMenu.transform.Find("Resume Btn").gameObject.GetComponent<Button>().onClick.AddListener(buttonPress.Play);
+        pauseMenu.transform.Find("Settings Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenSettings);
+        pauseMenu.transform.Find("Settings Btn").gameObject.GetComponent<Button>().onClick.AddListener(buttonPress.Play);
+        pauseMenu.transform.Find("Exit Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenMainMenu);
+        pauseMenu.transform.Find("Exit Btn").gameObject.GetComponent<Button>().onClick.AddListener(buttonPress.Play);
+
+        settingsMenu.transform.Find("Back Btn").gameObject.GetComponent<Button>().onClick.AddListener(CloseSettings);
+        settingsMenu.transform.Find("Back Btn").gameObject.GetComponent<Button>().onClick.AddListener(buttonPress.Play);
+        settingsMenu.transform.Find("Slider1").gameObject.GetComponent<Slider>().onValueChanged.AddListener(SetMainVolume);
+        settingsMenu.transform.Find("Toggle1").gameObject.GetComponent<Toggle>().onValueChanged.AddListener(ToggleAudio);
+        settingsMenu.transform.Find("Slider2").gameObject.GetComponent<Slider>().onValueChanged.AddListener(SetEffectVolume);
+        //settingsMenu.transform.Find("Toggle2").gameObject.GetComponent<Toogle>().onValueChanged.AddListener();
+        settingsMenu.transform.Find("Slider3").gameObject.GetComponent<Slider>().onValueChanged.AddListener(SetBossSize);
+        settingsMenu.transform.Find("Toggle3").gameObject.GetComponent<Toggle>().onValueChanged.AddListener(ToggleGooglyEyes);
+
+        tasksMenu.transform.Find("Btn").gameObject.GetComponent<Button>().onClick.AddListener(ToogleNotePopup);
+    }
+
+    private void AdjustSettings()
+    {
+        settingsMenu.transform.Find("Slider1").gameObject.GetComponent<Slider>().SetValueWithoutNotify(Settings.mainVolume);
+        SetMusicVolume(Settings.mainVolume);
+        settingsMenu.transform.Find("Toggle1").gameObject.GetComponent<Toggle>().SetIsOnWithoutNotify(Settings.isSoundOff);
+        ToggleAudio(Settings.isSoundOff);
+        settingsMenu.transform.Find("Slider2").gameObject.GetComponent<Slider>().SetValueWithoutNotify(Settings.effectsVolume);
+        SetEffectVolume(Settings.effectsVolume);
+        //settingsMenu.transform.Find("Toggle2").gameObject.GetComponent<Toogle>().onValueChanged.AddListener();
+        settingsMenu.transform.Find("Slider3").gameObject.GetComponent<Slider>().SetValueWithoutNotify(Settings.bossSize);
+        settingsMenu.transform.Find("Toggle3").gameObject.GetComponent<Toggle>().SetIsOnWithoutNotify(Settings.googlyEyes);
+        bossBody.HacerChikito();
+    }
+
     public void OpenSettings()
     {
         pauseMenuIsOpen = pauseMenu.activeSelf;
@@ -151,25 +181,29 @@ public class MenuController : MonoBehaviour
 
     public void SetMainVolume(float volume)
     {
-
-        audiomixer.SetFloat("mastervolume", volume);
+        if (!Settings.isSoundOff)
+        {
+            audiomixer.SetFloat("mastervolume", volume);
+        }
+        Settings.mainVolume = volume;
         mainvolume = volume;
     }
     public void SetMusicVolume(float volume)
     {
-
+        Settings.musicVolume = volume;
         audiomixer.SetFloat("musicvolume", volume);
     }
     public void SetEffectVolume(float volume)
     {
-
+        Settings.effectsVolume = volume;
         audiomixer.SetFloat("effectvolume", volume);
     }
     public void ToggleAudio(bool mute)
     {
-        if (mute) 
+        Settings.isSoundOff = mute;
+        if (mute)
         {
-            audiomixer.SetFloat("mastervolume", -40f);
+            audiomixer.SetFloat("mastervolume", -100f);
             isaudioOn = false;
         }
         else
@@ -181,13 +215,14 @@ public class MenuController : MonoBehaviour
 
     public void SetBossSize(float size)
     {
-        //bossBody.size = size;
-        //bossBody.HacerChikito();
+        Settings.bossSize = size;
+        bossBody.HacerChikito();
     }
 
     public void ToggleGooglyEyes(bool bolean)
     {
-        //bossBody.googlyEyesOn = bolean;
-        //bossBody.HacerChikito();
+        Settings.googlyEyes = bolean;
+        bossBody.HacerChikito();
     }
+
 }
