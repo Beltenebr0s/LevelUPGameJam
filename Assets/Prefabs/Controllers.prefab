@@ -93,11 +93,14 @@ MonoBehaviour:
   eventController: {fileID: 5932829095774306412}
   gameOverUIPanel: {fileID: 0}
   endingText: {fileID: 0}
+  backgroundCanvas: {fileID: 0}
+  defaultBackground: {fileID: 2800000, guid: afd9efdd2b4aeb842bcbda41525bedf0, type: 3}
   phisingBadEnding: Who would have thought that pince Adetokunbo really existed...
     Now Pollut INC. has all the founding they need to destroy the planet.
-  bustedBadEnding: "Final malo por poner el careto en el tabl\xF3n de anuncios\t"
+  bustedBadEnding: Maybe I shouldn't have hung up those posters with my face on them...
   waterBadEnding: Final malo por envenenar el agua - el remedio es peor que la enfermedad
-  notEnoughBadEnding: Final malo porque no has jugado una mierda
+  notEnoughBadEnding: I did't manage to do enough...
+  notWorkingBadEnding: I got caught not working...
   defaultGoodEnding: I managed to frustrate Pollut's plans!! It won't be enough to
     save the world, but I made my effort count.
   transitionPanel: {fileID: 0}
@@ -110,8 +113,8 @@ MonoBehaviour:
   totalGoodEventsFinished: 0
   requiredGoodEvents: 0
   endImage: {fileID: 0}
-  goodEndingSprite: {fileID: 21300000, guid: aef3bd01ecb59de4c9edfb7f389fe7db, type: 3}
-  badEndingSprite: {fileID: 21300000, guid: e1f5d75a3dc7ed845ab37ef62add90d1, type: 3}
+  goodEndingSprite: {fileID: 21300000, guid: 945e601dab7b56e42b921433f08d3900, type: 3}
+  badEndingSprite: {fileID: 21300000, guid: 49a9cd44eec302544ba11568cc5d0e51, type: 3}
 --- !u!1 &5472855465937963231
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,10 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0db177ca82f9d44298f651c206721ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportPopup: {fileID: 3689277323867938831, guid: db138db86921dd54289be64993290404, type: 3}
+  fPopup: {fileID: 3689277323867938831, guid: db138db86921dd54289be64993290404, type: 3}
   backgroundCanvas: {fileID: 0}
   player: {fileID: 0}
-  relPos: {x: 0, y: 1, z: 0}
+  relPos: {x: 0, y: 0.9, z: 0}
   closestTeleport: {fileID: 0}
 --- !u!1 &5942125858291075512
 GameObject:
@@ -196,7 +199,7 @@ Transform:
   - {fileID: 981940943510678938}
   - {fileID: 1748544242731996486}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7798806447518399711
 GameObject:
@@ -247,7 +250,10 @@ MonoBehaviour:
   HUD: {fileID: 0}
   dailyMenu: {fileID: 0}
   pauseController: {fileID: 5510667118539040209}
+  introPanel: {fileID: 0}
   audiomixer: {fileID: 24100000, guid: 9ef586505d95b324491697afdb570d7f, type: 2}
+  isaudioOn: 0
+  mainvolume: 0
   BeaAnimated: {fileID: 0}
 --- !u!1 &8742996789423077217
 GameObject:
@@ -298,20 +304,53 @@ MonoBehaviour:
   - name: Bob
     bubbleRelativePos: {x: 0, y: 4}
     dialogos:
-    - Hola caracola.
+    - Mountains aren't just funny. They're hill areas.
+    - What do clouds wear? Thunderwear.
+    - Where do young trees go to learn? Elementree school.
+    - When two vegans get in an argument, is it still called a beef?
+    - I made a pencil with two erasers. It was pointless.
+    - "I used to hate facial hair\u2026 but then it grew on me."
+    - I've got a great joke about construction, but I'm still working on it.
+    - What did the janitor say when he jumped out of the closet? Supplies!
+    - I don't trust stairs. They're always up to something.
+    - I don't trust those trees. They seem kind of shady.
   - name: Cynthia
     bubbleRelativePos: {x: 0, y: 4}
     dialogos:
-    - Quieres un piti?
-  - name: NPC Computer
-    bubbleRelativePos: {x: 0, y: 4}
-    dialogos:
-    - Screeeeeeennnnnn......
+    - I wish Pollut destroyed the world already, I can't stand working a day more.
+    - If that asshole of Randy gets back here to flirt with me again, I'm gonna stick
+      a lit cigarette in his eye.
+    - "I should quit  smoking, but then I wouldn\u2019t have smoke breaks\u2026"
+    - Can you stop running around? It is making me tired.
+    - I'm not printing anything for you. You can do it yourself.
+    - Someone called asking for you two hours ago.
+    - Uuuuuuuggghhhhh....
+    - Bob is a nice guy, but his jokes are.... well, you know what I mean.
   - name: NPC Coffee
     bubbleRelativePos: {x: 0, y: 4}
     dialogos:
     - Finland has the highest coffee consumption per capita, with almost 14 kg a
       year.
+    - 63% of US adults drink coffee daily.
+    - 78% of executives drink coffee daily.
+    - The US coffee industry is worth $96 billion.
+    - In Europe, 52% of coffee consumed outside the home is drunk in the office.
+    - Drip coffee accounts for 54% of work coffee, with espresso being second with
+      a 24%.
+  - name: NPC Computer
+    bubbleRelativePos: {x: 0, y: 4}
+    dialogos:
+    - ...............................
+    - The breath of the cat in the park smells like cat food.
+    - Patience is a virtue.
+    - There is no sin except stupidity.
+    - Those who laugh last thinks slowest.
+    - Don't think that you have to know everything, it is better not to know  some
+      things.
+    - Uuuuuuu..........
+    - The weather forecast said it is going to rain tomorrow.
+    - I don't have time to talk to you.
+    - I am working.
   chatBubble: {fileID: 3602464338567745537, guid: 0b1138e2eb5f14f40b2a12352760576f, type: 3}
 --- !u!1001 &2948628149133978621
 PrefabInstance:
@@ -327,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.size
@@ -339,7 +378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[0].taskName
-      value: Plant elderflower tree in the park.
+      value: Plant tree in the park.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[1].taskName
@@ -351,11 +390,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[3].taskName
-      value: "\u201CSpike\u201D the water in the water tank."
+      value: "Reply to \u201Cdefinitely true\u201D emails."
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[4].taskName
-      value: "Reply to \u201Curgent\u201D and \u201Cdefinitely true\u201D emails."
+      value: Cut off electricity from AC.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[5].taskName
@@ -363,7 +402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[0].taskName
-      value: Water elderflower tree.
+      value: Water tree.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[1].taskName
@@ -375,8 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[3].taskName
-      value: "Help Adetokunbo with his \u201Curgent\u201D and \u201Cdefinitely true\u201D
-        requests."
+      value: "Help Adetokunbo with his \u201Curgent\u201D requests."
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[4].taskName
@@ -396,17 +434,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[2].taskName
-      value: "Oh no, there seems to be a \"fire\"! What should I do\u2026"
+      value: Oh no, there seems to be a "fire"!
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[3].taskName
-      value: "Help Adetokunbo get \u201Cplane tickets\u201D to \u201Ccome to our
-        country\u201D."
+      value: "Help Adetokunbo get \u201Cplane tickets\u201D."
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[4].taskName
-      value: Get Cynthia even more break time by cutting the electricity of the reception
-        area off.
+      value: Cut off the electricity of the reception area.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[1].storyLine
@@ -418,11 +454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[3].storyLine
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[4].storyLine
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[5].storyLine
@@ -536,85 +572,57 @@ PrefabInstance:
       propertyPath: days.Array.data[0].events.Array.data[0].description
       value: "The boss had the magnificent idea of building a heliport in front of
         our building! We\u2019re getting the permits ready to be sent to the city
-        hall, but it shouldn\u2019t be long until it is completed. Aren\u2019t you
-        excited? No more waiting in traffic excuses to arrive late!"
+        hall."
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[1].description
-      value: "We have to send the plans of the water bottling facility we are building
-        in the Niagara Falls to the city hall to get them approved and stamped, since
-        construction has been stopped until all the paperwork is in order. I can\u2019t
-        wait to taste that sweet bottled water!"
+      value: We have to send the plans of the water bottling facility we are building
+        in the Niagara Falls to the city hall to get them approved and stamped.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[2].description
-      value: "Today, the boss is meeting with Corp. Se to seal the deal on _________
-        . This is a game changer for our company, so please, just try to avoid being
-        anywhere near any Corp. Se representatives, we don\u2019t want you scaring
-        them away."
+      value: Today, the boss is meeting with Corp. Se to seal the deal on emptying
+        the Pacific to rescue the Titanic.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[3].description
-      value: "The Ministry of Health and Wellbeing is sending a couple of inspectors
-        today for the yearly review. After the last one of Bob\u2019s office parties,
-        we can\u2019t mess this up, so I have removed the coffee machine from the
-        break room. I\u2019m sorry Bob, you\u2019ll have to refill your mug with
-        water."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[0].description
-      value: We managed to send the paperwork for the heliport to the city hall yesterday,
-        and it will take them a day to review it. But fear not, it will be built
-        sooner than you think! I hope you have already asked for a loan to buy a
-        helicopter. I sure have! It is going to be very expensive, but worth it!
+      value: We managed to send the paperwork for the heliport to the city hall.
+        It will take them a day to review it.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[1].description
-      value: "Apparently, someone lost yesterday the plans for the water bottling
-        facility that is to be constructed at the Niagara Falls. I don\u2019t know
-        how someone manages to lose a two hundred-page folder, perhaps we should
-        ask Bob. Regardless, we have to print them again today."
+      value: Apparently, someone lost the plans for the water bottling facility,
+        so we have to print them again today.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[2].description
-      value: "Despite my clear advice yesterday, someone messed up and the meeting
-        with Corp. Se did not take place yesterday. Luckily, they were willing to
-        meet with us again, and the boss will be with them today in the projection
-        room. This time, please stay clear of the whole floor, let\u2019s not botch
-        things again."
+      value: Yesterday, someone messed up and the meeting with Corp. Se did not take
+        place. Luckily, the boss will meet with them today in the projection room.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[0].description
-      value: "We got the approval from city hall to build the heliport!! The builders
+      value: We got the approval from city hall to build the heliport!! The builders
         will get here today, we just have to wait for an ecology inspector to do
-        some dumb research on the plants there. I already got my helicopter, although
-        I don\u2019t really have a heliport close to my house."
+        some dumb research on the plants there.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[1].description
-      value: We still have to send the plans for the water bottling facility, since
-        yesterday, the printer broke down. But we have thought, why not use actual
-        modern technology, and not some thirty-year-old crap? So we will be sending
-        them today by email, since they are already uploaded to our servers. We are
-        doing a final check before sending them, but this should be over and done
-        this evening.
+      value: The printer broke down, so we couldn't send the plans. Since they are
+        uploaded to our servers, we will send them today by email.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[2].description
-      value: "Since everything breaking seems to be a thing is this office, the beamer
-        in the projection room also broke yesterday, but we have installed an indestructible
-        one. Please, Bob, refrain from watching any movies there today, the boss
-        will be meeting there with the Corp. Se, who very kindly accepted to have
-        another meeting with us, although they also said this will be the last one.
-        This time I don\u2019t even want you looking at them, just stay in your cubicle
-        and under no circumstances leave. I don\u2019t care if the office is on fire,
-        just stay there!"
+      value: The beamer broke down and the meeting with Corp. Se was cancelled. The
+        boss is meeting with them one last time today so I don't want you movine
+        even if there is a fire!
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[4].description
-      value: I know Cynthia is not actually helping the company get richer, but I
-        bet she would appreciate having even less work to do, and the company would
-        definitely not enjoy that.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[0].goodDecision
@@ -640,6 +648,10 @@ PrefabInstance:
       propertyPath: days.Array.data[0].events.Array.data[2].playerSprite
       value: 
       objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[3].goodDecision
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[3].playerSprite
       value: 
@@ -742,9 +754,8 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[0].playerThoughts
-      value: "But in front of the building there is a small park, the only one in
-        the whole block! If I manage to plant there my elderflower tree they won\u2019t
-        be able to destroy the part, since it is a protected species\u2026"
+      value: There is a small park in front of the building! Maybe I can plant a
+        protected tree there...
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[1].playerThoughts
@@ -752,20 +763,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[2].playerThoughts
-      value: Those two can never meet, that would be catastrophic! Maybe I can wait
-        for Cynthia to go to one of her many smoke breaks and fiddle with the computer
-        at the reception.
+      value: Those two can never meet! Maybe I can fiddle with the computer at the
+        reception.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[3].playerThoughts
-      value: "What? No coffee?? What am I going to drink today? Water?? Water\u2026
-        Isn\u2019t there a water tank on the rooftop? The health inspectors would
-        not be happy is the water is undrinkable\u2026"
+      value: "The boss gets a lot of emails every day, I\u2019m sure there are some
+        interesting ones in his spam folder he won\u2019t mind me answering to."
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[4].playerThoughts
-      value: "The boss gets a lot of emails every day, I\u2019m sure there are some
-        interesting ones in his spam folder he won\u2019t mind me answering to."
+      value: "The AC here is always on, I\u2019m cutting its electricity off!"
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[5].playerThoughts
@@ -775,8 +783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[0].playerThoughts
-      value: This guy truly has no brains. I have to check on the elderflower tree,
-        maybe it needs a bit of water.
+      value: I have to check on the tree, maybe it needs a bit of water.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[1].playerThoughts
@@ -785,8 +792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[2].playerThoughts
-      value: "For real? They are very persistent! But let\u2019s see how you present
-        anything without a beamer to do so."
+      value: "For real? Let\u2019s see how you have a meeting without a beamer."
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[3].playerThoughts
@@ -795,16 +801,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[4].playerThoughts
-      value: "Someone from the activist group sent me the poster for the next demonstration.
-        Maybe I can hang them on the bulletin board, but they do have my face in
-        them\u2026"
+      value: "I can hang some posters for a demonstration on the bulletin board,
+        but they have my face on them\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[5].playerThoughts
-      value: "Cynthia told me that the boss has a bathtub in his office. Why on earth
-        would he have that?? Bathtubs are such an unnecessary waste of water, and
-        he has one in the office?? Next time you want to have a bath, you\u2019re
-        going to have to filling using cups from the break room."
+      value: Cynthia told me that the boss has a bathtub in his office. We'll see
+        how you use that without water.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[0].playerThoughts
@@ -813,43 +816,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[1].playerThoughts
-      value: "You mean the servers that run on coal plants\u2019 electricity? It
-        would truly be a shame if something were to happen to them\u2026"
+      value: "It would truly be a shame if something were to happen to those servers\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[2].playerThoughts
-      value: "This is it, if I manage to interrupt their meeting, this deal is over
-        and done with. He said something about a hypothetical fire, but then I would
-        have hypothetically to trigger the fire alarm, hypothetically\u2026"
+      value: This is it, if I manage to interrupt their meeting, this deal is over
+        and done with. He said something about fire...
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[3].playerThoughts
       value: "The Nigerian Prince Adetokunbo said he would need more help in his
-        emails, although he seems to be getting kind of serious\u2026 Well, I simply
-        can\u2019t let this opportunity pass. "
+        emails, although he seems to be getting kind of serious\u2026 "
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[2].events.Array.data[4].playerThoughts
-      value: I know Cynthia is not actually helping the company get richer, but I
-        bet she would appreciate having even less work to do, and the company would
-        definitely not enjoy that.
+      value: I think Cynthia would appreciate having even less work to do, and the
+        company would definitely not enjoy that.
       objectReference: {fileID: 0}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[0].characterSprite
       value: 
-      objectReference: {fileID: 21300000, guid: fb6eb95f7be68ae42bd2f65e772ba5c3, type: 3}
+      objectReference: {fileID: 21300000, guid: 87e7de669c706f547ae7e1a971841528, type: 3}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[1].characterSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+      objectReference: {fileID: 21300000, guid: 87e7de669c706f547ae7e1a971841528, type: 3}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[2].characterSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+      objectReference: {fileID: 21300000, guid: 87e7de669c706f547ae7e1a971841528, type: 3}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[3].characterSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
+      propertyPath: days.Array.data[0].events.Array.data[4].characterSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82d4338e3622e7f4099fabafaf260165, type: 3}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[0].events.Array.data[5].characterSprite
       value: 
@@ -857,15 +860,15 @@ PrefabInstance:
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[0].characterSprite
       value: 
-      objectReference: {fileID: 21300000, guid: fb6eb95f7be68ae42bd2f65e772ba5c3, type: 3}
+      objectReference: {fileID: 21300000, guid: 87e7de669c706f547ae7e1a971841528, type: 3}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[1].characterSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+      objectReference: {fileID: 21300000, guid: 87e7de669c706f547ae7e1a971841528, type: 3}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[2].characterSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 951c1e2a8856ab249ae55c131b23d22e, type: 3}
+      objectReference: {fileID: 21300000, guid: 87e7de669c706f547ae7e1a971841528, type: 3}
     - target: {fileID: 8844512270880074641, guid: 0eb2d244d1b78c74c944208b3ff0926b, type: 3}
       propertyPath: days.Array.data[1].events.Array.data[3].characterSprite
       value: 

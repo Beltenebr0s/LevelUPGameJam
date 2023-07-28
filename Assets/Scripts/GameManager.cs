@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         } 
         else 
         { 
-            Instance = this; 
+            Instance = this;
         } 
     }
 
@@ -235,6 +235,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         player.transform.position = startingPosition.position;
+        backgroundCanvas.CrossFadeAlpha(1f, 0f, true);
         backgroundCanvas.texture = defaultBackground;
     }
 }

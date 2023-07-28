@@ -8,37 +8,54 @@ using JetBrains.Annotations;
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField] private GameObject settingsMenu;
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject HUD;
-    [SerializeField] private GameObject dailyMenu;
+    [SerializeField] private GameObject canvas;
     [SerializeField] private PauseController pauseController;
 
+    private GameObject pauseMenu;
+    private GameObject settingsMenu;
+    private GameObject HUD;
+    private GameObject dailyMenu;
     private GameObject tasksMenu;
     private Animator tasksMenuAnim;
     private ButtonChangeToogle tasksMenuBtnScript;
 
     private bool pauseMenuIsOpen = false;
     private bool tasksMenuIsOpen = false;
-    public GameObject introPanel;
+    
+    public AudioMixer audiomixer;
+    public bool isaudioOn;
+    public float mainvolume;
 
     void Start()
     {
+        pauseMenu = canvas.transform.Find("Pause menu").gameObject;
+        settingsMenu = canvas.transform.Find("Settings menu").gameObject;
+        HUD = canvas.transform.Find("HUD").gameObject;
+        dailyMenu = canvas.transform.Find("DailyPopups").gameObject;
+
+        tasksMenu = HUD.transform.Find("Tasks").gameObject;
 
         pauseMenu.transform.Find("Resume Btn").gameObject.GetComponent<Button>().onClick.AddListener(pauseController.Resume);
         pauseMenu.transform.Find("Settings Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenSettings);
         pauseMenu.transform.Find("Exit Btn").gameObject.GetComponent<Button>().onClick.AddListener(OpenMainMenu);
 
         settingsMenu.transform.Find("Back Btn").gameObject.GetComponent<Button>().onClick.AddListener(CloseSettings);
-
-        tasksMenu = HUD.transform.Find("Tasks").gameObject;
+        settingsMenu.transform.Find("Slider1").gameObject.GetComponent<Slider>().onValueChanged.AddListener(SetMusicVolume);
+        settingsMenu.transform.Find("Toggle1").gameObject.GetComponent<Toggle>().onValueChanged.AddListener(ToggleAudio);
+        settingsMenu.transform.Find("Slider2").gameObject.GetComponent<Slider>().onValueChanged.AddListener(SetEffectVolume);
+        //settingsMenu.transform.Find("Toggle2").gameObject.GetComponent<Toogle>().onValueChanged.AddListener();
+        settingsMenu.transform.Find("Slider3").gameObject.GetComponent<Slider>().onValueChanged.AddListener(SetBossSize);
+        settingsMenu.transform.Find("Toggle3").gameObject.GetComponent<Toggle>().onValueChanged.AddListener(ToggleGooglyEyes);
 
         tasksMenu.transform.Find("Btn").gameObject.GetComponent<Button>().onClick.AddListener(ToogleNotePopup);
 
         tasksMenuBtnScript = tasksMenu.transform.Find("Btn").gameObject.GetComponent<ButtonChangeToogle>();
         tasksMenuAnim = tasksMenu.GetComponent<Animator>();
 
-        introPanel.SetActive(false);
+        pauseMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        HUD.SetActive(true);
+        dailyMenu.SetActive(false);
     }
 
     void LateUpdate()
@@ -72,7 +89,6 @@ public class MenuController : MonoBehaviour
         {
             if (settingsMenu.activeSelf)
             {
-                Vuelveahi();
                 CloseSettings();
             }
             else if (pauseController.gameIsPaused)
@@ -95,21 +111,6 @@ public class MenuController : MonoBehaviour
                 pauseController.Pause();
             }
         }
-    }
-
-    public void ShowIntro()
-    {
-        introPanel.SetActive(true);
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 
     public void OpenSettings()
@@ -148,11 +149,6 @@ public class MenuController : MonoBehaviour
         }
     }
 
-
-    public AudioMixer audiomixer;
-    public bool isaudioOn;
-    public float mainvolume;
-
     public void SetMainVolume(float volume)
     {
 
@@ -169,9 +165,9 @@ public class MenuController : MonoBehaviour
 
         audiomixer.SetFloat("effectvolume", volume);
     }
-    public void ToggleAudio()
+    public void ToggleAudio(bool mute)
     {
-        if (isaudioOn) 
+        if (mute) 
         {
             audiomixer.SetFloat("mastervolume", -40f);
             isaudioOn = false;
@@ -183,15 +179,15 @@ public class MenuController : MonoBehaviour
         }
     }
 
-
-    public GameObject BeaAnimated;
-    public void QuitaDeAhi()
+    public void SetBossSize(float size)
     {
-        BeaAnimated.transform.position = new Vector3(2622, -1519, 0);
-    }
-    public void Vuelveahi()
-    {
-        BeaAnimated.transform.position = new Vector3(5, -14, 90);
+        //bossBody.size = size;
+        //bossBody.HacerChikito();
     }
 
+    public void ToggleGooglyEyes(bool bolean)
+    {
+        //bossBody.googlyEyesOn = bolean;
+        //bossBody.HacerChikito();
+    }
 }

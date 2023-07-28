@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class LookAtCamera : MonoBehaviour
 {
+    [SerializeField] private bool onlyLayers = false;
     private float distToCameraZ;
     private GameObject mainCamera;
     private int number;
@@ -29,7 +31,10 @@ public class LookAtCamera : MonoBehaviour
             GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("New Layer " + number.ToString());
         }
 
-        transform.forward = Camera.main.transform.forward;
+        if (!onlyLayers)
+        {
+            transform.forward = Camera.main.transform.forward;
+        }
         
         //transform.LookAt(new Vector3(Camera.main.transform.position.x, transform.position.y, Camera.main.transform.position.z), Vector3.up);
         //transform.forward *= -1;
