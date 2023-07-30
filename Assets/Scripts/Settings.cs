@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Settings 
 {
-    public static float mainVolume;
+    public static float mainVolume = -15f;
     public static float musicVolume;
     public static float effectsVolume;
 
-    public static bool isSoundOff;
+    public static bool isSoundOff = false;
 
-    public static float bossSize;
-    public static bool googlyEyes;
+    public static float bossSize = 0.48f;
+    public static bool googlyEyes = false;
 }

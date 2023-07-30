@@ -115,6 +115,7 @@ public class MainMenuController : MonoBehaviour
     public void CloseSettings()
     {
         playerSprite.SetActive(true);
+        playerSprite.GetComponent<Animator>().Play("PTitleScreen");
         settingsMenu.SetActive(false);
     }
 

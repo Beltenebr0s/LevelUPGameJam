@@ -52,4 +52,13 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
+
+    public void ShowMenu()
+    {
+        pauseMenuAnim.Show();
+    }
+    public void HideMenu()
+    {
+        pauseMenuAnim.Hide();
+    }
 }

@@ -21,7 +21,6 @@ public class MenuController : MonoBehaviour
     private Animator tasksMenuAnim;
     private ButtonChangeToogle tasksMenuBtnScript;
 
-    private bool pauseMenuIsOpen = false;
     private bool tasksMenuIsOpen = false;
     
     public AudioMixer audiomixer;
@@ -42,16 +41,17 @@ public class MenuController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (dailyMenu != null)
+        if (dailyMenu.activeSelf)
         {
-            if (dailyMenu.activeSelf)
+            HUD.SetActive(false);
+            if (!pauseController.gameIsPaused)
             {
-                HUD.SetActive(false);
+                pauseController.MenulessPause();
             }
-            else
-            {
-                HUD.SetActive(true);
-            }
+        }
+        else
+        {
+            HUD.SetActive(true);
         }
 
         if (Input.GetKeyUp(KeyCode.Tab))
@@ -82,6 +82,17 @@ public class MenuController : MonoBehaviour
                     tasksMenuIsOpen = false;
                     pauseController.Pause();
 
+                }
+                else if (dailyMenu.activeSelf)
+                {
+                    if (pauseMenu.activeSelf)
+                    {
+                        pauseController.HideMenu();
+                    }
+                    else
+                    {
+                        pauseController.ShowMenu();
+                    }
                 }
                 else
                 {
@@ -145,7 +156,6 @@ public class MenuController : MonoBehaviour
 
     public void OpenSettings()
     {
-        pauseMenuIsOpen = pauseMenu.activeSelf;
         settingsMenu.SetActive(true);
         pauseMenu.SetActive(false);
     }
@@ -153,7 +163,7 @@ public class MenuController : MonoBehaviour
     public void CloseSettings() 
     { 
         settingsMenu.SetActive(false);
-        pauseMenu.SetActive(pauseMenuIsOpen);
+        pauseMenu.SetActive(true);
     }
 
     public void OpenMainMenu() 
