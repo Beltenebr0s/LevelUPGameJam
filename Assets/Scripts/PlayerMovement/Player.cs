@@ -12,9 +12,10 @@ public class Player : MonoBehaviour
     private float speed;
     public Rigidbody rb;
     private bool lookingLeft = false;
-
+    public bool isWorking = true; // true because the player starts in the computer
     void Start()
     {
+        isWorking = true;
         speed = baseSpeed;
         rb = GetComponent<Rigidbody>();
     }

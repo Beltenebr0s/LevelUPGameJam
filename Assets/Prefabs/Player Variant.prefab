@@ -522,6 +522,7 @@ MonoBehaviour:
   blinkRange: 0.005
   animator: {fileID: 5032008192344783512}
   rb: {fileID: 2962642622744112672}
+  isWorking: 1
 --- !u!114 &6802678289407627373
 MonoBehaviour:
   m_ObjectHideFlags: 0

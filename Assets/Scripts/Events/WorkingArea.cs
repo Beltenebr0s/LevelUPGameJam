@@ -47,6 +47,7 @@ public class WorkingArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<Player>().isWorking = true;
             playerAnim.SetBool("isWorking", true);
             SFX.Play();
             isWorking = true;
@@ -57,6 +58,7 @@ public class WorkingArea : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<Player>().isWorking = false;
             playerAnim.SetBool("isWorking", false);
             SFX.Pause();
             isWorking = false;
