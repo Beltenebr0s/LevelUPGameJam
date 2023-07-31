@@ -14,7 +14,7 @@ public class DayEventController : MonoBehaviour
     public DailyPopUpManager eventPopup;
     public ListaDeEventos checklist;
 
-    private float timeCounter = 0f;
+    public float timeCounter = 0f;
     private float timeToHour = 15;
     private string minutes = ":00";
 

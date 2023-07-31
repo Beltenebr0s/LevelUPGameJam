@@ -9,7 +9,7 @@ public class WorkingArea : MonoBehaviour
     public AudioSource SFX;
 
     public bool isWorking = false;
-    public float timeWithoutWorkingPermitted = 100f;
+    public float timeWithoutWorkingPermitted = 120f;
     public float timeToRefillGauge = 3f;
     public float timer;
 

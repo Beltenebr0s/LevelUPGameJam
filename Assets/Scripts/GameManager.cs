@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     public float startDayTimer = 1.5f;
     public float startDayTimerCount = 0f;
     public int totalGoodEventsFinished;
+    public int previousDayGoodEventsFinished; // backup for checkpoints
     public int requiredGoodEvents;
 
     private int currentDay = 0;
@@ -102,6 +103,7 @@ public class GameManager : MonoBehaviour
         requiredGoodEvents = 14;
         currentDay = 0;
         eventController.RestartDays();
+        previousDayGoodEventsFinished = 0;
     }
 
     public void EndGame()
@@ -195,6 +197,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            previousDayGoodEventsFinished = totalGoodEventsFinished; 
             totalGoodEventsFinished += numEventsFinished;
         }
     }
@@ -202,7 +205,16 @@ public class GameManager : MonoBehaviour
     public void ReloadGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        player.transform.position = startingPosition.position;
+        gameRunning = false;
+        transitionPanel.SetActive(true);
+        transitionPanel.GetComponent<RawImage>().CrossFadeAlpha(1f, 0f, true);
+        gameOverUIPanel.SetActive(false);
+        totalGoodEventsFinished = previousDayGoodEventsFinished;
+        startDayTimerCount = 0f;
+        eventController.currentDay.currentHour = 0;
+        eventController.timeCounter = 0f;
+        eventController.currentDay.SetUpEvents();
     }
 
     public void PlayerCaught()
